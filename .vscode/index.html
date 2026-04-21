@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LadyLogin – Anti-Detect Browser #1 Việt Nam</title>
+  <meta name="description" content="Quản lý hàng nghìn tài khoản trên mọi nền tảng với fingerprint độc lập. Không bị phát hiện. Không bị ban.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main"></a>
+
+  <div class="announcement-bar">
+    <span class="announcement-badge">Mới</span>
+    <span>LadyLogin 3.0 ra mắt — Hỗ trợ Android profile và proxy rotation thông minh.</span>
+    <a href="#">Tìm hiểu thêm →</a>
+  </div>
+
+  <header class="header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#">
+        <span class="brand-mark">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M9 1L16 5V13L9 17L2 13V5L9 1Z" fill="white" fill-opacity="0.9"/>
+            <path d="M9 5L13 7.5V12.5L9 15L5 12.5V7.5L9 5Z" fill="white" fill-opacity="0.4"/>
+          </svg>
+        </span>
+        <span class="brand-text">LadyLogin</span>
+      </a>
+
+      <button id="menuBtn" class="menu-btn" aria-label="Mở menu" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="17" y2="6"/>
+          <line x1="3" y1="10" x2="17" y2="10"/>
+          <line x1="3" y1="14" x2="17" y2="14"/>
+        </svg>
+      </button>
+
+      <nav id="mainNav" class="nav">
+        <a href="#features">Tính năng</a>
+        <a href="#how">Cách dùng</a>
+        <a href="#pricing">Bảng giá</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="actions">
+        <a class="btn btn-ghost" href="#">Đăng nhập</a>
+        <a class="btn btn-primary" href="#">Bắt đầu miễn phí</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            Anti-Detect Browser #1 Việt Nam
+          </div>
+          <h1>Quản lý đa tài khoản <span class="gradient-text">an toàn &amp; có hệ thống</span></h1>
+          <p class="hero-desc">
+            Quản lý hàng nghìn tài khoản trên Facebook, TikTok, Shopee, Amazon với fingerprint hoàn toàn độc lập. Tự động hóa workflow và tăng trưởng không giới hạn.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-primary btn-lg" href="#">Dùng thử miễn phí 7 ngày</a>
+            <a class="btn btn-outline btn-lg" href="#features">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <polygon points="4,2 12,7 4,12" fill="currentColor"/>
+              </svg>
+              Xem demo
+            </a>
+          </div>
+          <div class="hero-trust">
+            <div class="trust-item">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="#10b981" stroke-width="1.5"/><path d="M4.5 7L6.5 9L9.5 5" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Không cần thẻ tín dụng
+            </div>
+            <div class="trust-sep"></div>
+            <div class="trust-item">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="#10b981" stroke-width="1.5"/><path d="M4.5 7L6.5 9L9.5 5" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Onboard dưới 10 phút
+            </div>
+            <div class="trust-sep"></div>
+            <div class="trust-item">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="#10b981" stroke-width="1.5"/><path d="M4.5 7L6.5 9L9.5 5" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Hỗ trợ 24/7
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-panel">
+            <div class="panel-titlebar">
+              <div class="panel-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <div class="panel-title">Workspace Overview</div>
+              <div class="panel-status"><span class="status-dot"></span> Live</div>
+            </div>
+            <div class="panel-body">
+              <div class="kpi-row">
+                <div class="kpi-card">
+                  <div class="kpi-label">Profiles active</div>
+                  <div class="kpi-value">248</div>
+                  <div class="kpi-trend trend-up">+12 hôm nay</div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kpi-label">Task success</div>
+                  <div class="kpi-value">99.2%</div>
+                  <div class="kpi-trend trend-up">↑ 0.4%</div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kpi-label">Auto/ngày</div>
+                  <div class="kpi-value">1,420</div>
+                  <div class="kpi-trend trend-up">+85</div>
+                </div>
+              </div>
+              <div class="panel-table">
+                <div class="ptrow ptrow-head">
+                  <span>Profile</span><span>Proxy</span><span>Status</span>
+                </div>
+                <div class="ptrow">
+                  <span>Shop US #08</span>
+                  <span class="proxy-tag">🇺🇸 US Residential</span>
+                  <span class="status-badge status-ok">Running</span>
+                </div>
+                <div class="ptrow">
+                  <span>TikTok Team</span>
+                  <span class="proxy-tag">🇸🇬 SG Mobile</span>
+                  <span class="status-badge status-warn">Syncing</span>
+                </div>
+                <div class="ptrow">
+                  <span>Affiliate VN</span>
+                  <span class="proxy-tag">🇻🇳 VN DC</span>
+                  <span class="status-badge status-ok">Ready</span>
+                </div>
+                <div class="ptrow">
+                  <span>FB Ads Pool</span>
+                  <span class="proxy-tag">🇬🇧 UK Proxy</span>
+                  <span class="status-badge status-idle">Idle</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="float-card float-card-1">
+            <div class="fc-icon">🛡️</div>
+            <div>
+              <div class="fc-title">Fingerprint OK</div>
+              <div class="fc-sub">Tất cả profiles sạch</div>
+            </div>
+          </div>
+          <div class="float-card float-card-2">
+            <div class="fc-icon">⚡</div>
+            <div>
+              <div class="fc-title">1,420 tasks</div>
+              <div class="fc-sub">Hoàn thành hôm nay</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BRANDS -->
+    <section class="brands-section">
+      <div class="container">
+        <p class="brands-label">Được tin dùng bởi các team tăng trưởng hàng đầu</p>
+        <div class="brands-list">
+          <div class="brand-item">ScaleHub</div>
+          <div class="brand-item">NovaAds</div>
+          <div class="brand-item">RiseCommerce</div>
+          <div class="brand-item">PixelWorks</div>
+          <div class="brand-item">GrowthLab</div>
+          <div class="brand-item">MediaFlow</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number">50,000<span>+</span></div>
+            <div class="stat-label">Người dùng hoạt động</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">2M<span>+</span></div>
+            <div class="stat-label">Profile được tạo</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">99.9<span>%</span></div>
+            <div class="stat-label">Uptime đảm bảo</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">100<span>+</span></div>
+            <div class="stat-label">Quốc gia &amp; Khu vực</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-eyebrow">Tính năng</div>
+          <h2>Mọi thứ bạn cần để quản lý<br>đa tài khoản chuyên nghiệp</h2>
+          <p>Được thiết kế cho cá nhân lẫn team lớn — từ setup nhanh đến automation toàn diện.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="feature-icon feature-icon-purple">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="2" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="11" y="2" width="7" height="7" rx="1.5" fill="currentColor" opacity="0.5"/><rect x="2" y="11" width="7" height="7" rx="1.5" fill="currentColor" opacity="0.5"/><rect x="11" y="11" width="7" height="7" rx="1.5" fill="currentColor"/></svg>
+            </div>
+            <h3>Multi-Profile Manager</h3>
+            <p>Tạo và quản lý hàng trăm profile độc lập với fingerprint riêng biệt. Tổ chức theo folder, tag và workspace.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon feature-icon-blue">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="2"/><circle cx="10" cy="10" r="3" fill="currentColor"/><path d="M10 3V1M10 19V17M3 10H1M19 10H17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Fingerprint Spoofing</h3>
+            <p>Giả lập Canvas, WebGL, Audio, Font, Timezone và hàng chục tham số fingerprint khác. Không nền tảng nào phát hiện được.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon feature-icon-green">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="5" r="2" fill="currentColor"/><circle cx="10" cy="15" r="2" fill="currentColor"/><circle cx="5" cy="10" r="2" fill="currentColor"/><circle cx="15" cy="10" r="2" fill="currentColor"/><path d="M10 7V13M7 10H13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Proxy Integration</h3>
+            <p>Tích hợp sẵn HTTP, SOCKS5 và Residential proxy. Hỗ trợ rotation tự động và health check định kỳ.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon feature-icon-orange">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 3H15C16.1 3 17 3.9 17 5V9C17 14 10 17 10 17C10 17 3 14 3 9V5C3 3.9 3.9 3 5 3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M7 10L9 12L13 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Team Permission</h3>
+            <p>Phân quyền chi tiết theo role. Thành viên chỉ thấy và thao tác trên profile được giao — an toàn tuyệt đối.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon feature-icon-red">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="10" rx="2" stroke="currentColor" stroke-width="2"/><path d="M7 17H13M10 13V17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Automation &amp; API</h3>
+            <p>Chạy batch tasks, lập lịch tự động và kết nối qua REST API. Tích hợp với Puppeteer, Playwright dễ dàng.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon feature-icon-indigo">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 14L7 10L10 13L14 8L17 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="3" width="14" height="14" rx="2" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <h3>Realtime Analytics</h3>
+            <p>Dashboard trực quan — theo dõi trạng thái profile, lịch sử task, success rate và alert khi có sự cố.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how" class="section section-alt">
+      <div class="container how-inner">
+        <div>
+          <div class="section-eyebrow">Quy trình</div>
+          <h2>Từ setup đến chạy — chưa tới 10 phút</h2>
+          <p class="how-desc">Không cần kiến thức kỹ thuật. Giao diện trực quan, tài liệu hướng dẫn đầy đủ và đội hỗ trợ sẵn sàng 24/7.</p>
+          <div class="steps-list">
+            <div class="step-item">
+              <div class="step-num">01</div>
+              <div class="step-body">
+                <h4>Tạo workspace &amp; thêm thành viên</h4>
+                <p>Đăng ký tài khoản, tạo workspace và phân quyền cho team chỉ trong vài click.</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">02</div>
+              <div class="step-body">
+                <h4>Khởi tạo profile theo template</h4>
+                <p>Chọn template có sẵn hoặc tùy chỉnh fingerprint, gắn proxy và lưu cấu hình.</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">03</div>
+              <div class="step-body">
+                <h4>Chạy tasks &amp; theo dõi realtime</h4>
+                <p>Kích hoạt automation, theo dõi tiến độ qua dashboard và nhận báo cáo chi tiết.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="how-quote-col">
+          <blockquote class="testimonial">
+            <div class="testimonial-stars">★★★★★</div>
+            <p>"LadyLogin giúp team mình quản lý 500+ tài khoản Facebook Ads mà không lo bị phát hiện. Từ khi dùng, tỷ lệ ban account giảm xuống gần như 0."</p>
+            <footer>
+              <div class="testimonial-avatar">T</div>
+              <div>
+                <strong>Nguyễn Minh Tuấn</strong>
+                <span>Growth Lead tại NovaAds</span>
+              </div>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonial">
+            <div class="testimonial-stars">★★★★★</div>
+            <p>"Automation API của LadyLogin tích hợp với pipeline của mình rất mượt. Tiết kiệm được hàng chục giờ thao tác thủ công mỗi tuần."</p>
+            <footer>
+              <div class="testimonial-avatar">L</div>
+              <div>
+                <strong>Trần Thị Lan</strong>
+                <span>CTO tại ScaleHub</span>
+              </div>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-eyebrow">Bảng giá</div>
+          <h2>Chọn gói phù hợp với quy mô của bạn</h2>
+          <p>Không phí ẩn. Nâng/hạ gói bất kỳ lúc nào.</p>
+        </div>
+        <div class="pricing-grid">
+          <article class="pricing-card">
+            <div class="pc-header">
+              <h3>Starter</h3>
+              <p>Cho cá nhân và team nhỏ mới bắt đầu.</p>
+            </div>
+            <div class="pc-price">
+              <span class="price-amount">0đ</span>
+              <span class="price-period">/tháng</span>
+            </div>
+            <a class="btn btn-outline btn-block" href="#">Bắt đầu miễn phí</a>
+            <div class="pc-features">
+              <div class="pc-feat"><svg class="check-icon" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>10 profiles</div>
+              <div class="pc-feat"><svg class="check-icon" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>1 workspace</div>
+              <div class="pc-feat"><svg class="check-icon" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Basic fingerprint</div>
+              <div class="pc-feat"><svg class="check-icon" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Community support</div>
+              <div class="pc-feat pc-feat-dim"><svg class="x-icon" viewBox="0 0 16 16" fill="none"><path d="M4 4L12 12M12 4L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Automation workflows</div>
+              <div class="pc-feat pc-feat-dim"><svg class="x-icon" viewBox="0 0 16 16" fill="none"><path d="M4 4L12 12M12 4L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>API access</div>
+            </div>
+          </article>
+
+          <article class="pricing-card pricing-card-featured">
+            <div class="pc-badge">Phổ biến nhất</div>
+            <div class="pc-header">
+              <h3>Growth</h3>
+              <p>Cho team đang scale và cần automation.</p>
+            </div>
+            <div class="pc-price">
+              <span class="price-amount">690K</span>
+              <span class="price-period">/tháng</span>
+            </div>
+            <a class="btn btn-primary btn-block" href="#">Dùng thử 7 ngày miễn phí</a>
+            <div class="pc-features">
+              <div class="pc-feat"><svg class="check-icon" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>300 profiles</div>
+              <div class="pc-feat"><svg class="check-icon" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>3 workspaces</div>
+              <div class="pc-feat"><svg class="check-icon" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Advanced fingerprint</div>
+              <div class="pc-feat"><svg class="check-icon" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Automation workflows</div>
+              <div class="pc-feat"><svg class="check-icon" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Team permissions</div>
+              <div class="pc-feat"><svg class="check-icon" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Priority support</div>
+            </div>
+          </article>
+
+          <article class="pricing-card">
+            <div class="pc-header">
+              <h3>Scale</h3>
+              <p>Cho doanh nghiệp với nhu cầu không giới hạn.</p>
+            </div>
+            <div class="pc-price">
+              <span class="price-amount" style="font-size:28px;line-height:1.3">Liên hệ</span>
+            </div>
+            <a class="btn btn-outline btn-block" href="#">Liên hệ Sales</a>
+            <div class="pc-features">
+              <div class="pc-feat"><svg class="check-icon" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Unlimited profiles</div>
+              <div class="pc-feat"><svg class="check-icon" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Unlimited workspaces</div>
+              <div class="pc-feat"><svg class="check-icon" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>SSO &amp; Audit log</div>
+              <div class="pc-feat"><svg class="check-icon" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Custom API integrations</div>
+              <div class="pc-feat"><svg class="check-icon" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Dedicated manager</div>
+              <div class="pc-feat"><svg class="check-icon" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>SLA 99.9%</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-eyebrow">FAQ</div>
+          <h2>Câu hỏi thường gặp</h2>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>
+              <span>LadyLogin có hợp pháp không?</span>
+              <svg class="chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </summary>
+            <div class="faq-answer"><p>Có. LadyLogin là công cụ bảo vệ quyền riêng tư hợp pháp, tương tự như VPN hay proxy. Việc sử dụng phụ thuộc vào mục đích của người dùng và điều khoản của từng nền tảng.</p></div>
+          </details>
+          <details>
+            <summary>
+              <span>Tôi có thể chuyển dữ liệu từ hệ thống cũ không?</span>
+              <svg class="chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </summary>
+            <div class="faq-answer"><p>Có. Đội ngũ hỗ trợ sẽ migration theo checklist chuẩn, đảm bảo downtime tối thiểu. Hỗ trợ import từ Multilogin, GoLogin, AdsPower và các tool phổ biến.</p></div>
+          </details>
+          <details>
+            <summary>
+              <span>Onboarding mất bao lâu?</span>
+              <svg class="chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </summary>
+            <div class="faq-answer"><p>Phần lớn người dùng hoàn thành setup trong dưới 10 phút. Tài liệu hướng dẫn chi tiết và video tutorial sẵn có. Team hỗ trợ hỗ trợ 1:1 nếu cần.</p></div>
+          </details>
+          <details>
+            <summary>
+              <span>Có thể mở rộng cho nhiều team không?</span>
+              <svg class="chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </summary>
+            <div class="faq-answer"><p>Hoàn toàn có thể. Bạn tạo nhiều workspace, phân quyền role (Admin, Member, Viewer) và theo dõi hoạt động từng team riêng biệt.</p></div>
+          </details>
+          <details>
+            <summary>
+              <span>Thanh toán bằng hình thức nào?</span>
+              <svg class="chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </summary>
+            <div class="faq-answer"><p>Chấp nhận chuyển khoản ngân hàng, MoMo, ZaloPay, thẻ quốc tế Visa/Mastercard và USDT. Xuất hóa đơn VAT theo yêu cầu.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-inner">
+          <h2>Sẵn sàng tăng trưởng không giới hạn?</h2>
+          <p>Tham gia cùng 50,000+ người dùng đang dùng LadyLogin để quản lý và scale tài khoản hiệu quả.</p>
+          <div class="cta-buttons">
+            <a class="btn btn-white btn-lg" href="#">Bắt đầu miễn phí ngay</a>
+            <a class="btn btn-ghost-white btn-lg" href="#">Liên hệ Sales →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a class="brand" href="#">
+          <span class="brand-mark">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M9 1L16 5V13L9 17L2 13V5L9 1Z" fill="white" fill-opacity="0.9"/>
+              <path d="M9 5L13 7.5V12.5L9 15L5 12.5V7.5L9 5Z" fill="white" fill-opacity="0.4"/>
+            </svg>
+          </span>
+          <span class="brand-text">LadyLogin</span>
+        </a>
+        <p>Nền tảng quản lý đa tài khoản<br>cho đội ngũ tăng trưởng hiện đại.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-link" aria-label="Facebook">f</a>
+          <a href="#" class="social-link" aria-label="Zalo">Z</a>
+          <a href="#" class="social-link" aria-label="Telegram">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M1 6.5L3.3 7.4L9.4 3.2C9.6 3.1 9.7 3.3 9.6 3.4L5.2 8L5 10.5L6.5 9L9 11C9.3 11.2 9.7 11.1 9.8 10.7L11.5 2.8C11.6 2.2 11 1.7 10.5 1.9L1 5.8C0.6 6 0.6 6.5 1 6.5Z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-col">
+          <h4>Sản phẩm</h4>
+          <a href="#">Tính năng</a>
+          <a href="#">Bảng giá</a>
+          <a href="#">Changelog</a>
+          <a href="#">Roadmap</a>
+        </div>
+        <div class="footer-col">
+          <h4>Tài nguyên</h4>
+          <a href="#">Tài liệu</a>
+          <a href="#">API Reference</a>
+          <a href="#">Blog</a>
+          <a href="#">Tutorial</a>
+        </div>
+        <div class="footer-col">
+          <h4>Công ty</h4>
+          <a href="#">Về chúng tôi</a>
+          <a href="#">Liên hệ</a>
+          <a href="#">Bảo mật</a>
+          <a href="#">Điều khoản</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2025 LadyLogin. All rights reserved.</p>
+        <p>Thiết kế tại Việt Nam 🇻🇳</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const mainNav = document.getElementById("mainNav");
+    menuBtn.addEventListener("click", () => {
+      const open = mainNav.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", open);
+    });
+    mainNav.querySelectorAll("a").forEach(a => {
+      a.addEventListener("click", () => {
+        mainNav.classList.remove("open");
+        menuBtn.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll(
+      ".hero-content, .hero-visual, .brands-section .container, .stats-grid, .section-head, .feature-card, .pricing-card, .step-item, .testimonial, details, .cta-inner, .footer-inner"
+    );
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in-view"); io.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: "0px 0px -30px 0px" });
+    revealEls.forEach(el => io.observe(el));
+
+    // FAQ smooth open/close
+    document.querySelectorAll("details").forEach(detail => {
+      const answer = detail.querySelector(".faq-answer");
+      detail.addEventListener("toggle", () => {
+        answer.style.maxHeight = detail.open ? answer.scrollHeight + "px" : "0";
+      });
+    });
+  </script>
+</body>
+</html>
