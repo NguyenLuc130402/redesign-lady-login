@@ -961,7 +961,7 @@ h1 {
 
 .float-card-1 {
   bottom: -16px;
-  left: -24px;
+  left: -90px;
   animation: floatY 3s ease-in-out infinite;
 }
 
