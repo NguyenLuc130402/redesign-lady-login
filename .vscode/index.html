@@ -14,9 +14,9 @@
   <a class="skip-link" href="#main"></a>
 
   <div class="announcement-bar">
-    <span class="announcement-badge">Mới</span>
-    <span>LadyLogin 3.0 ra mắt — Hỗ trợ Android profile và proxy rotation thông minh.</span>
-    <a href="#">Tìm hiểu thêm →</a>
+    <span class="announcement-badge" data-i18n="announce-badge">Mới</span>
+    <span data-i18n="announce-text">LadyLogin 3.0 ra mắt — Hỗ trợ Android profile và proxy rotation thông minh.</span>
+    <a href="https://app.ladylogin.com" data-i18n="announce-link">Tìm hiểu thêm →</a>
   </div>
 
   <header class="header">
@@ -40,15 +40,147 @@
       </button>
 
       <nav id="mainNav" class="nav">
-        <a href="#features">Tính Năng</a>
-        <a href="#how">Hướng Dẫn</a>
-        <a href="#pricing">Bảng Giá</a>
+        <div class="nav-dropdown" id="featuresDropdown">
+          <button class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false">
+            <span data-i18n="nav-features">Tính Năng</span>
+            <svg class="nav-dropdown-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="nav-dropdown-menu" role="menu">
+            <a href="#features" class="nav-dropdown-item" role="menuitem">
+              <span class="nav-di-icon">👥</span>
+              <span class="nav-di-text" data-i18n="feat-multi-account">Quản lý Đa tài khoản</span>
+            </a>
+            <a href="#features" class="nav-dropdown-item" role="menuitem">
+              <span class="nav-di-icon">🔄</span>
+              <span class="nav-di-text" data-i18n="feat-multi-window">Đồng bộ hóa Đa cửa sổ</span>
+            </a>
+            <a href="#features" class="nav-dropdown-item" role="menuitem">
+              <span class="nav-di-icon">🤖</span>
+              <span class="nav-di-text" data-i18n="feat-rpa">Tự động hóa RPA</span>
+            </a>
+            <a href="#features" class="nav-dropdown-item" role="menuitem">
+              <span class="nav-di-icon">🔌</span>
+              <span class="nav-di-text" data-i18n="feat-api">Tích hợp API Local</span>
+            </a>
+            <a href="#features" class="nav-dropdown-item" role="menuitem">
+              <span class="nav-di-icon">📋</span>
+              <span class="nav-di-text" data-i18n="feat-bulk">Thao tác Hồ sơ Hàng loạt</span>
+            </a>
+            <a href="#features" class="nav-dropdown-item" role="menuitem">
+              <span class="nav-di-icon">🔐</span>
+              <span class="nav-di-text" data-i18n="feat-team">Phân quyền &amp; Làm việc nhóm</span>
+            </a>
+            <a href="#features" class="nav-dropdown-item" role="menuitem">
+              <span class="nav-di-icon">☁️</span>
+              <span class="nav-di-text" data-i18n="feat-cloud">Hệ sinh thái Cloud Phone</span>
+            </a>
+            <a href="#features" class="nav-dropdown-item" role="menuitem">
+              <span class="nav-di-icon">🛡️</span>
+              <span class="nav-di-text" data-i18n="feat-security">Bảo mật Tài khoản Toàn diện</span>
+            </a>
+          </div>
+        </div>
+        <div class="nav-dropdown" id="solutionsDropdown">
+          <button class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false">
+            <span data-i18n="nav-solutions">Giải Pháp</span>
+            <svg class="nav-dropdown-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="nav-dropdown-menu nav-mega-menu" role="menu">
+            <div class="nav-mega-header">
+              <span class="nav-mega-tag" data-i18n="sol-tag">Giải pháp</span>
+              <span class="nav-mega-sub" data-i18n="sol-sub">Đối tác đáng tin cậy trong mọi lĩnh vực</span>
+            </div>
+            <div class="nav-mega-grid">
+              <a href="#usecases" class="nav-mega-item" role="menuitem" onclick="switchTab(document.querySelector('.uc-tab:nth-child(1)'),'uc-ecommerce')">
+                <span class="nav-mega-icon">🛒</span>
+                <div><div class="nav-mega-title" data-i18n="sol-ecommerce">Thương mại Điện tử</div></div>
+              </a>
+              <a href="#usecases" class="nav-mega-item" role="menuitem" onclick="switchTab(document.querySelector('.uc-tab:nth-child(2)'),'uc-affiliate')">
+                <span class="nav-mega-icon">🔗</span>
+                <div><div class="nav-mega-title" data-i18n="sol-affiliate">Tiếp thị Liên kết</div></div>
+              </a>
+              <a href="#usecases" class="nav-mega-item" role="menuitem" onclick="switchTab(document.querySelector('.uc-tab:nth-child(3)'),'uc-social')">
+                <span class="nav-mega-icon">📱</span>
+                <div><div class="nav-mega-title" data-i18n="sol-social">Social Media</div></div>
+              </a>
+              <a href="#usecases" class="nav-mega-item" role="menuitem" onclick="switchTab(document.querySelector('.uc-tab:nth-child(4)'),'uc-crypto')">
+                <span class="nav-mega-icon">₿</span>
+                <div><div class="nav-mega-title" data-i18n="sol-crypto">Crypto</div></div>
+              </a>
+              <a href="#usecases" class="nav-mega-item" role="menuitem" onclick="switchTab(document.querySelector('.uc-tab:nth-child(5)'),'uc-scraping')">
+                <span class="nav-mega-icon">🕷️</span>
+                <div><div class="nav-mega-title" data-i18n="sol-scraping">Web Scraping</div></div>
+              </a>
+              <a href="#usecases" class="nav-mega-item" role="menuitem" onclick="switchTab(document.querySelector('.uc-tab:nth-child(6)'),'uc-ads')">
+                <span class="nav-mega-icon">📊</span>
+                <div><div class="nav-mega-title" data-i18n="sol-ads">Quảng cáo</div></div>
+              </a>
+              <a href="#usecases" class="nav-mega-item" role="menuitem" onclick="switchTab(document.querySelector('.uc-tab:nth-child(7)'),'uc-agency')">
+                <span class="nav-mega-icon">🏢</span>
+                <div><div class="nav-mega-title" data-i18n="sol-agency">Agency</div></div>
+              </a>
+              <a href="#usecases" class="nav-mega-item" role="menuitem" onclick="switchTab(document.querySelector('.uc-tab:nth-child(8)'),'uc-game')">
+                <span class="nav-mega-icon">🎮</span>
+                <div><div class="nav-mega-title" data-i18n="sol-game">Game &amp; Airdrop</div></div>
+              </a>
+              <a href="#usecases" class="nav-mega-item" role="menuitem" onclick="switchTab(document.querySelector('.uc-tab:nth-child(9)'),'uc-seo')">
+                <span class="nav-mega-icon">🔍</span>
+                <div><div class="nav-mega-title" data-i18n="sol-seo">SEO &amp; SERP</div></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="nav-dropdown" id="resourcesDropdown">
+          <button class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false">
+            <span data-i18n="nav-resources">Tài Nguyên</span>
+            <svg class="nav-dropdown-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="nav-dropdown-menu" role="menu">
+            <a href="#" class="nav-dropdown-item" role="menuitem">
+              <span class="nav-di-icon">📝</span>
+              <span class="nav-di-text" data-i18n="res-blog">Blog &amp; Kiến thức</span>
+            </a>
+            <a href="#" class="nav-dropdown-item" role="menuitem">
+              <span class="nav-di-icon">🤝</span>
+              <span class="nav-di-text" data-i18n="res-partner">Chương trình Đối tác</span>
+            </a>
+            <a href="#" class="nav-dropdown-item" role="menuitem">
+              <span class="nav-di-icon">👨‍👩‍👧‍👦</span>
+              <span class="nav-di-text" data-i18n="res-community">Cộng đồng Người dùng</span>
+            </a>
+            <a href="#" class="nav-dropdown-item" role="menuitem">
+              <span class="nav-di-icon">🎧</span>
+              <span class="nav-di-text" data-i18n="res-support">Trung tâm Hỗ trợ</span>
+            </a>
+            <a href="#" class="nav-dropdown-item" role="menuitem">
+              <span class="nav-di-icon">🎬</span>
+              <span class="nav-di-text" data-i18n="res-video">Video Hướng dẫn</span>
+            </a>
+            <a href="#" class="nav-dropdown-item" role="menuitem">
+              <span class="nav-di-icon">✨</span>
+              <span class="nav-di-text" data-i18n="res-brand">Câu chuyện Thương hiệu</span>
+            </a>
+          </div>
+        </div>
+        <a href="#about" data-i18n="nav-about">Giới Thiệu</a>
+        <a href="#how" data-i18n="nav-guide">Hướng Dẫn</a>
+        <a href="#pricing" data-i18n="nav-pricing">Bảng Giá</a>
         <a href="#faq">FAQ</a>
       </nav>
 
       <div class="actions">
-        <a class="btn btn-ghost" href="#">Đăng nhập</a>
-        <a class="btn btn-primary" href="#">Bắt đầu miễn phí</a>
+        <button class="lang-btn" id="langBtn" onclick="toggleLang()" title="Switch language">
+          <span class="lang-icon">🌐</span>
+          <span id="langLabel">EN</span>
+        </button>
+        <a href="https://app.ladylogin.com"  class="btn btn-ghost"  data-i18n="btn-login">Đăng nhập</a>
+        <a href="https://app.ladylogin.com" class="btn btn-primary" data-i18n="btn-start">Bắt đầu miễn phí</a>
       </div>
     </div>
   </header>
@@ -63,42 +195,42 @@
         <div class="hero-content">
           <div class="hero-badge">
             <span class="badge-dot"></span>
-            Anti-Detect Browser #1 Việt Nam
+            <span data-i18n="hero-badge">Anti-Detect Browser #1 Việt Nam</span>
           </div>
-          <h1>Quản lý đa tài khoản<br><span class="gradient-text">An Toàn · Tự Động · Hiệu Quả</span></h1>
-          <p class="hero-desc">
+          <h1 data-i18n-html="hero-h1">Quản lý đa tài khoản<br><span class="gradient-text">An Toàn · Tự Động · Hiệu Quả</span></h1>
+          <p class="hero-desc" data-i18n="hero-desc">
             Hàng nghìn tài khoản Facebook, TikTok, Shopee, Amazon — mỗi profile một fingerprint độc lập. Không bị phát hiện, không bị ban, tăng trưởng không giới hạn.
           </p>
           <div class="hero-cta">
-            <a class="btn btn-primary btn-lg" href="#">
+            <a class="btn btn-primary btn-lg" href="https://app.ladylogin.com" data-i18n="hero-cta-1">
               Dùng thử miễn phí 7 ngày
             </a>
             <a class="btn btn-outline btn-lg" href="#features">
               <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
                 <polygon points="4,2 13,7.5 4,13" fill="currentColor"/>
               </svg>
-              Xem demo
+              <span data-i18n="hero-cta-2">Xem demo</span>
             </a>
           </div>
           <div class="hero-trust">
             <div class="trust-item">
               <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="6.5" stroke="#10b981" stroke-width="1.5"/><path d="M5 7.5L7 9.5L10.5 5.5" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Không cần thẻ tín dụng
+              <span data-i18n="trust-1">Không cần thẻ tín dụng</span>
             </div>
             <div class="trust-sep"></div>
             <div class="trust-item">
               <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="6.5" stroke="#10b981" stroke-width="1.5"/><path d="M5 7.5L7 9.5L10.5 5.5" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Onboard dưới 10 phút
+              <span data-i18n="trust-2">Onboard dưới 10 phút</span>
             </div>
             <div class="trust-sep"></div>
             <div class="trust-item">
               <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="6.5" stroke="#10b981" stroke-width="1.5"/><path d="M5 7.5L7 9.5L10.5 5.5" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Hỗ trợ 24/7
+              <span data-i18n="trust-3">Hỗ trợ 24/7</span>
             </div>
             <div class="trust-sep"></div>
             <div class="trust-item">
               <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="6.5" stroke="#10b981" stroke-width="1.5"/><path d="M5 7.5L7 9.5L10.5 5.5" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              50,000+ người dùng
+              <span data-i18n="trust-4">50,000+ người dùng</span>
             </div>
           </div>
         </div>
@@ -109,14 +241,14 @@
             <div class="fc-icon">🛡️</div>
             <div>
               <div class="fc-title">Fingerprint OK</div>
-              <div class="fc-sub">Tất cả profiles sạch</div>
+              <div class="fc-sub" data-i18n="fc-sub-1">Tất cả profiles sạch</div>
             </div>
           </div>
           <div class="float-card float-card-2">
             <div class="fc-icon">⚡</div>
             <div>
               <div class="fc-title">1,420 tasks</div>
-              <div class="fc-sub">Hoàn thành hôm nay</div>
+              <div class="fc-sub" data-i18n="fc-sub-2">Hoàn thành hôm nay</div>
             </div>
           </div>
           <div class="hero-panel">
@@ -134,7 +266,7 @@
                 <div class="kpi-card">
                   <div class="kpi-label">Profiles active</div>
                   <div class="kpi-value">248</div>
-                  <div class="kpi-trend trend-up">+12 hôm nay</div>
+                  <div class="kpi-trend trend-up" data-i18n="kpi-trend-1">+12 hôm nay</div>
                 </div>
                 <div class="kpi-card">
                   <div class="kpi-label">Task success</div>
@@ -142,14 +274,14 @@
                   <div class="kpi-trend trend-up">↑ 0.4%</div>
                 </div>
                 <div class="kpi-card">
-                  <div class="kpi-label">Auto/ngày</div>
+                  <div class="kpi-label" data-i18n="kpi-auto">Auto/ngày</div>
                   <div class="kpi-value">1,420</div>
                   <div class="kpi-trend trend-up">+85</div>
                 </div>
                 <div class="kpi-card">
                   <div class="kpi-label">Proxy uptime</div>
                   <div class="kpi-value">99.9%</div>
-                  <div class="kpi-trend trend-up">Ổn định</div>
+                  <div class="kpi-trend trend-up" data-i18n="kpi-stable">Ổn định</div>
                 </div>
               </div>
               <div class="panel-table">
@@ -197,7 +329,7 @@
     <!-- BRANDS -->
     <section class="brands-section">
       <div class="container">
-        <p class="brands-label">Được tin dùng bởi các team tăng trưởng hàng đầu</p>
+        <p class="brands-label" data-i18n="brands-label">Được tin dùng bởi các team tăng trưởng hàng đầu</p>
         <div class="brands-list">
           <div class="brand-item">ScaleHub</div>
           <div class="brand-item">NovaAds</div>
@@ -215,19 +347,19 @@
         <div class="stats-grid">
           <div class="stat-card">
             <div class="stat-number">50,000<span>+</span></div>
-            <div class="stat-label">Người dùng hoạt động</div>
+            <div class="stat-label" data-i18n="stat-1">Người dùng hoạt động</div>
           </div>
           <div class="stat-card">
-            <div class="stat-number">2M<span>+</span></div>
-            <div class="stat-label">Profile được tạo</div>
+            <div class="stat-number">2,000,000<span>+</span></div>
+            <div class="stat-label" data-i18n="stat-2">Profile được tạo</div>
           </div>
           <div class="stat-card">
             <div class="stat-number">99.9<span>%</span></div>
-            <div class="stat-label">Uptime đảm bảo</div>
+            <div class="stat-label" data-i18n="stat-3">Uptime đảm bảo</div>
           </div>
           <div class="stat-card">
             <div class="stat-number">100<span>+</span></div>
-            <div class="stat-label">Quốc gia &amp; Khu vực</div>
+            <div class="stat-label" data-i18n="stat-4">Quốc gia &amp; Khu vực</div>
           </div>
         </div>
       </div>
@@ -237,9 +369,9 @@
     <section id="features" class="section">
       <div class="container">
         <div class="section-head">
-          <div class="section-eyebrow">Tính năng</div>
-          <h2>Mọi thứ bạn cần để quản lý<br>đa tài khoản chuyên nghiệp</h2>
-          <p>Được thiết kế cho cá nhân lẫn team lớn — từ setup nhanh đến automation toàn diện.</p>
+          <div class="section-eyebrow" data-i18n="feat-eyebrow">Tính năng</div>
+          <h2 data-i18n-html="feat-h2">Mọi thứ bạn cần để quản lý<br>đa tài khoản chuyên nghiệp</h2>
+          <p data-i18n="feat-p">Được thiết kế cho cá nhân lẫn team lớn — từ setup nhanh đến automation toàn diện.</p>
         </div>
         <div class="feature-grid">
           <article class="feature-card">
@@ -247,42 +379,42 @@
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="2" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="11" y="2" width="7" height="7" rx="1.5" fill="currentColor" opacity="0.5"/><rect x="2" y="11" width="7" height="7" rx="1.5" fill="currentColor" opacity="0.5"/><rect x="11" y="11" width="7" height="7" rx="1.5" fill="currentColor"/></svg>
             </div>
             <h3>Multi-Profile Manager</h3>
-            <p>Tạo và quản lý hàng trăm profile độc lập với fingerprint riêng biệt. Tổ chức theo folder, tag và workspace.</p>
+            <p data-i18n="feat-1-p">Tạo và quản lý hàng trăm profile độc lập với fingerprint riêng biệt. Tổ chức theo folder, tag và workspace.</p>
           </article>
           <article class="feature-card">
             <div class="feature-icon feature-icon-blue">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="2"/><circle cx="10" cy="10" r="3" fill="currentColor"/><path d="M10 3V1M10 19V17M3 10H1M19 10H17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             </div>
             <h3>Fingerprint Spoofing</h3>
-            <p>Giả lập Canvas, WebGL, Audio, Font, Timezone và hàng chục tham số fingerprint khác. Không nền tảng nào phát hiện được.</p>
+            <p data-i18n="feat-2-p">Giả lập Canvas, WebGL, Audio, Font, Timezone và hàng chục tham số fingerprint khác. Không nền tảng nào phát hiện được.</p>
           </article>
           <article class="feature-card">
             <div class="feature-icon feature-icon-green">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="5" r="2" fill="currentColor"/><circle cx="10" cy="15" r="2" fill="currentColor"/><circle cx="5" cy="10" r="2" fill="currentColor"/><circle cx="15" cy="10" r="2" fill="currentColor"/><path d="M10 7V13M7 10H13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
             </div>
             <h3>Proxy Integration</h3>
-            <p>Tích hợp sẵn HTTP, SOCKS5 và Residential proxy. Hỗ trợ rotation tự động và health check định kỳ.</p>
+            <p data-i18n="feat-3-p">Tích hợp sẵn HTTP, SOCKS5 và Residential proxy. Hỗ trợ rotation tự động và health check định kỳ.</p>
           </article>
           <article class="feature-card">
             <div class="feature-icon feature-icon-orange">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 3H15C16.1 3 17 3.9 17 5V9C17 14 10 17 10 17C10 17 3 14 3 9V5C3 3.9 3.9 3 5 3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M7 10L9 12L13 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
             <h3>Team Permission</h3>
-            <p>Phân quyền chi tiết theo role. Thành viên chỉ thấy và thao tác trên profile được giao — an toàn tuyệt đối.</p>
+            <p data-i18n="feat-4-p">Phân quyền chi tiết theo role. Thành viên chỉ thấy và thao tác trên profile được giao — an toàn tuyệt đối.</p>
           </article>
           <article class="feature-card">
             <div class="feature-icon feature-icon-red">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="10" rx="2" stroke="currentColor" stroke-width="2"/><path d="M7 17H13M10 13V17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             </div>
             <h3>Automation &amp; API</h3>
-            <p>Chạy batch tasks, lập lịch tự động và kết nối qua REST API. Tích hợp với Puppeteer, Playwright dễ dàng.</p>
+            <p data-i18n="feat-5-p">Chạy batch tasks, lập lịch tự động và kết nối qua REST API. Tích hợp với Puppeteer, Playwright dễ dàng.</p>
           </article>
           <article class="feature-card">
             <div class="feature-icon feature-icon-indigo">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 14L7 10L10 13L14 8L17 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="3" width="14" height="14" rx="2" stroke="currentColor" stroke-width="2"/></svg>
             </div>
             <h3>Realtime Analytics</h3>
-            <p>Dashboard trực quan — theo dõi trạng thái profile, lịch sử task, success rate và alert khi có sự cố.</p>
+            <p data-i18n="feat-6-p">Dashboard trực quan — theo dõi trạng thái profile, lịch sử task, success rate và alert khi có sự cố.</p>
           </article>
         </div>
       </div>
@@ -292,29 +424,29 @@
     <section id="how" class="section section-alt">
       <div class="container how-inner">
         <div>
-          <div class="section-eyebrow">Quy trình</div>
-          <h2>Từ setup đến chạy — chưa tới 10 phút</h2>
-          <p class="how-desc">Không cần kiến thức kỹ thuật. Giao diện trực quan, tài liệu hướng dẫn đầy đủ và đội hỗ trợ sẵn sàng 24/7.</p>
+          <div class="section-eyebrow" data-i18n="how-eyebrow">Quy trình</div>
+          <h2 data-i18n="how-h2">Từ setup đến chạy — chưa tới 10 phút</h2>
+          <p class="how-desc" data-i18n="how-desc">Không cần kiến thức kỹ thuật. Giao diện trực quan, tài liệu hướng dẫn đầy đủ và đội hỗ trợ sẵn sàng 24/7.</p>
           <div class="steps-list">
             <div class="step-item">
               <div class="step-num">01</div>
               <div class="step-body">
-                <h4>Tạo workspace &amp; thêm thành viên</h4>
-                <p>Đăng ký tài khoản, tạo workspace và phân quyền cho team chỉ trong vài click.</p>
+                <h4 data-i18n="step-1-h4">Tạo workspace &amp; thêm thành viên</h4>
+                <p data-i18n="step-1-p">Đăng ký tài khoản, tạo workspace và phân quyền cho team chỉ trong vài click.</p>
               </div>
             </div>
             <div class="step-item">
               <div class="step-num">02</div>
               <div class="step-body">
-                <h4>Khởi tạo profile theo template</h4>
-                <p>Chọn template có sẵn hoặc tùy chỉnh fingerprint, gắn proxy và lưu cấu hình.</p>
+                <h4 data-i18n="step-2-h4">Khởi tạo profile theo template</h4>
+                <p data-i18n="step-2-p">Chọn template có sẵn hoặc tùy chỉnh fingerprint, gắn proxy và lưu cấu hình.</p>
               </div>
             </div>
             <div class="step-item">
               <div class="step-num">03</div>
               <div class="step-body">
-                <h4>Chạy tasks &amp; theo dõi realtime</h4>
-                <p>Kích hoạt automation, theo dõi tiến độ qua dashboard và nhận báo cáo chi tiết.</p>
+                <h4 data-i18n="step-3-h4">Chạy tasks &amp; theo dõi realtime</h4>
+                <p data-i18n="step-3-p">Kích hoạt automation, theo dõi tiến độ qua dashboard và nhận báo cáo chi tiết.</p>
               </div>
             </div>
           </div>
@@ -322,23 +454,23 @@
         <div class="how-quote-col">
           <blockquote class="testimonial">
             <div class="testimonial-stars">★★★★★</div>
-            <p>"LadyLogin giúp team mình quản lý 500+ tài khoản Facebook Ads mà không lo bị phát hiện. Từ khi dùng, tỷ lệ ban account giảm xuống gần như 0."</p>
+            <p data-i18n="test-1-q">"LadyLogin giúp team mình quản lý 500+ tài khoản Facebook Ads mà không lo bị phát hiện. Từ khi dùng, tỷ lệ ban account giảm xuống gần như 0."</p>
             <footer>
               <div class="testimonial-avatar">T</div>
               <div>
                 <strong>Nguyễn Minh Tuấn</strong>
-                <span>Growth Lead tại NovaAds</span>
+                <span data-i18n="test-1-role">Growth Lead tại NovaAds</span>
               </div>
             </footer>
           </blockquote>
           <blockquote class="testimonial">
             <div class="testimonial-stars">★★★★★</div>
-            <p>"Automation API của LadyLogin tích hợp với pipeline của mình rất mượt. Tiết kiệm được hàng chục giờ thao tác thủ công mỗi tuần."</p>
+            <p data-i18n="test-2-q">"Automation API của LadyLogin tích hợp với pipeline của mình rất mượt. Tiết kiệm được hàng chục giờ thao tác thủ công mỗi tuần."</p>
             <footer>
               <div class="testimonial-avatar">L</div>
               <div>
                 <strong>Trần Thị Lan</strong>
-                <span>CTO tại ScaleHub</span>
+                <span data-i18n="test-2-role">CTO tại ScaleHub</span>
               </div>
             </footer>
           </blockquote>
@@ -350,21 +482,21 @@
     <section id="pricing" class="section">
       <div class="container">
         <div class="section-head">
-          <div class="section-eyebrow">Bảng giá</div>
-          <h2>Chọn gói phù hợp với quy mô của bạn</h2>
-          <p>Không phí ẩn. Nâng/hạ gói bất kỳ lúc nào.</p>
+          <div class="section-eyebrow" data-i18n="price-eyebrow">Bảng giá</div>
+          <h2 data-i18n="price-h2">Chọn gói phù hợp với quy mô của bạn</h2>
+          <p data-i18n="price-p">Không phí ẩn. Nâng/hạ gói bất kỳ lúc nào.</p>
         </div>
         <div class="pricing-grid">
           <article class="pricing-card">
             <div class="pc-header">
               <h3>Starter</h3>
-              <p>Cho cá nhân và team nhỏ mới bắt đầu.</p>
+              <p data-i18n="price-starter-p">Cho cá nhân và team nhỏ mới bắt đầu.</p>
             </div>
             <div class="pc-price">
               <span class="price-amount">0đ</span>
-              <span class="price-period">/tháng</span>
+              <span class="price-period" data-i18n="price-period-1">/tháng</span>
             </div>
-            <a class="btn btn-outline btn-block" href="#">Bắt đầu miễn phí</a>
+            <a class="btn btn-outline btn-block" href="https://app.ladylogin.com"data-i18n="price-starter-btn">Bắt đầu miễn phí</a>
             <div class="pc-features">
               <div class="pc-feat"><svg class="check-icon" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>10 profiles</div>
               <div class="pc-feat"><svg class="check-icon" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>1 workspace</div>
@@ -376,16 +508,16 @@
           </article>
 
           <article class="pricing-card pricing-card-featured">
-            <div class="pc-badge">Phổ biến nhất</div>
+            <div class="pc-badge" data-i18n="price-badge">Phổ biến nhất</div>
             <div class="pc-header">
               <h3>Growth</h3>
-              <p>Cho team đang scale và cần automation.</p>
+              <p data-i18n="price-growth-p">Cho team đang scale và cần automation.</p>
             </div>
             <div class="pc-price">
               <span class="price-amount">690K</span>
-              <span class="price-period">/tháng</span>
+              <span class="price-period" data-i18n="price-period-2">/tháng</span>
             </div>
-            <a class="btn btn-primary btn-block" href="#">Dùng thử 7 ngày miễn phí</a>
+            <a class="btn btn-primary btn-block" href="https://app.ladylogin.com" data-i18n="price-growth-btn">Dùng thử 7 ngày miễn phí</a>
             <div class="pc-features">
               <div class="pc-feat"><svg class="check-icon" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>300 profiles</div>
               <div class="pc-feat"><svg class="check-icon" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>3 workspaces</div>
@@ -399,12 +531,12 @@
           <article class="pricing-card">
             <div class="pc-header">
               <h3>Scale</h3>
-              <p>Cho doanh nghiệp với nhu cầu không giới hạn.</p>
+              <p data-i18n="price-scale-p">Cho doanh nghiệp với nhu cầu không giới hạn.</p>
             </div>
             <div class="pc-price">
-              <span class="price-amount" style="font-size:28px;line-height:1.3">Liên hệ</span>
+              <span class="price-amount" style="font-size:28px;line-height:1.3" data-i18n="price-scale-amount">Liên hệ</span>
             </div>
-            <a class="btn btn-outline btn-block" href="#">Liên hệ tư vấn</a>
+            <a class="btn btn-outline btn-block" href="https://app.ladylogin.com" data-i18n="price-scale-btn">Liên hệ tư vấn</a>
             <div class="pc-features">
               <div class="pc-feat"><svg class="check-icon" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Unlimited profiles</div>
               <div class="pc-feat"><svg class="check-icon" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Unlimited workspaces</div>
@@ -421,7 +553,7 @@
   <section class="partner-section">
   </section>
     <div class="container">
-      <p class="partner-label">Tương thích với mọi nền tảng bạn đang dùng</p>
+      <p class="partner-label" data-i18n="partner-label">Tương thích với mọi nền tảng bạn đang dùng</p>
       <div class="partner-track-wrap">
         <div class="partner-track" id="partnerTrack">
           <span class="partner-item"><span class="p-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="#1877F2"/><path d="M11.5 7.5h1.5V5.5h-1.5C9.6 5.5 8.5 6.6 8.5 8v1H7v2h1.5V16h2v-5H12l.5-2h-2V8c0-.3.2-.5.5-.5Z" fill="white"/></svg></span>Facebook</span>
@@ -461,9 +593,9 @@
   <section id="usecases" class="usecases-section section">
     <div class="container">
       <div class="section-head">
-        <div class="section-tag">Giải pháp</div>
-        <h2 class="section-title">Đối tác đáng tin cậy<br>trong mọi lĩnh vực</h2>
-        <p class="section-desc">Từ MMO đến eCommerce, từ cá nhân đến agency — LadyLogin phục vụ mọi nhu cầu.</p>
+        <div class="section-tag" data-i18n="uc-tag">Giải pháp</div>
+        <h2 class="section-title" data-i18n-html="uc-h2">Đối tác đáng tin cậy<br>trong mọi lĩnh vực</h2>
+        <p class="section-desc" data-i18n="uc-desc">Từ MMO đến eCommerce, từ cá nhân đến agency — LadyLogin phục vụ mọi nhu cầu.</p>
       </div>
 
       <div class="uc-layout">
@@ -504,128 +636,128 @@
                 <div class="ipad-panel active" id="uc-ecommerce">
                   <div class="ipad-panel-head">
                     <div class="ipad-panel-emoji">🛒</div>
-                    <div><div class="ipad-panel-title">Thương mại điện tử</div><div class="ipad-panel-sub">eCommerce · Multi-store</div></div>
+                    <div><div class="ipad-panel-title" data-i18n="uc-ec-title">Thương mại điện tử</div><div class="ipad-panel-sub">eCommerce · Multi-store</div></div>
                   </div>
-                  <p class="ipad-panel-desc">Quản lý hàng trăm gian hàng Shopee, Lazada, TikTok Shop, Amazon đồng thời. Mỗi shop IP & fingerprint riêng.</p>
-                  <ul class="ipad-panel-list">
+                  <p class="ipad-panel-desc" data-i18n="uc-ec-desc">Quản lý hàng trăm gian hàng Shopee, Lazada, TikTok Shop, Amazon đồng thời. Mỗi shop IP & fingerprint riêng.</p>
+                  <ul class="ipad-panel-list" data-i18n-html="uc-ec-list">
                     <li>Nhiều gian hàng, một nơi quản lý</li>
                     <li>Tự động hóa đăng sản phẩm & đơn hàng</li>
                     <li>Proxy tích hợp theo từng khu vực</li>
                     <li>Cookie isolation hoàn toàn giữa các acc</li>
                   </ul>
-                  <a href="#" class="ipad-cta">Dùng thử miễn phí →</a>
+                  <a href="https://app.ladylogin.com" class="ipad-cta" data-i18n="uc-cta">Dùng thử miễn phí →</a>
                 </div>
                 <div class="ipad-panel" id="uc-affiliate">
                   <div class="ipad-panel-head">
                     <div class="ipad-panel-emoji">🔗</div>
-                    <div><div class="ipad-panel-title">Tiếp thị liên kết</div><div class="ipad-panel-sub">Affiliate · Multi-campaign</div></div>
+                    <div><div class="ipad-panel-title" data-i18n="uc-aff-title">Tiếp thị liên kết</div><div class="ipad-panel-sub">Affiliate · Multi-campaign</div></div>
                   </div>
-                  <p class="ipad-panel-desc">Chạy nhiều chiến dịch affiliate song song với tài khoản độc lập. Theo dõi hiệu quả từng kênh chính xác.</p>
-                  <ul class="ipad-panel-list">
+                  <p class="ipad-panel-desc" data-i18n="uc-aff-desc">Chạy nhiều chiến dịch affiliate song song với tài khoản độc lập. Theo dõi hiệu quả từng kênh chính xác.</p>
+                  <ul class="ipad-panel-list" data-i18n-html="uc-aff-list">
                     <li>Nhiều tài khoản affiliate riêng biệt</li>
                     <li>Tracking link tách biệt theo profile</li>
                     <li>Đa nền tảng: Shopee, TikTok, Meta</li>
                     <li>A/B test landing page từ nhiều IP</li>
                   </ul>
-                  <a href="#" class="ipad-cta">Dùng thử miễn phí →</a>
+                  <a href="https://app.ladylogin.com" class="ipad-cta" data-i18n="uc-cta">Dùng thử miễn phí →</a>
                 </div>
                 <div class="ipad-panel" id="uc-social">
                   <div class="ipad-panel-head">
                     <div class="ipad-panel-emoji">📱</div>
-                    <div><div class="ipad-panel-title">Social Media Marketing</div><div class="ipad-panel-sub">Social · 500+ accounts</div></div>
+                    <div><div class="ipad-panel-title" data-i18n="uc-soc-title">Social Media Marketing</div><div class="ipad-panel-sub">Social · 500+ accounts</div></div>
                   </div>
-                  <p class="ipad-panel-desc">Quản lý hàng trăm fanpage Facebook, Instagram, kênh TikTok & YouTube. Xây mạng lưới quy mô lớn.</p>
-                  <ul class="ipad-panel-list">
+                  <p class="ipad-panel-desc" data-i18n="uc-soc-desc">Quản lý hàng trăm fanpage Facebook, Instagram, kênh TikTok & YouTube. Xây mạng lưới quy mô lớn.</p>
+                  <ul class="ipad-panel-list" data-i18n-html="uc-soc-list">
                     <li>500+ tài khoản FB/IG/TikTok một nơi</li>
                     <li>Đăng bài tự động theo lịch qua RPA</li>
                     <li>Nuôi tài khoản mới an toàn từ đầu</li>
                     <li>Phân quyền theo nhóm nhân viên</li>
                   </ul>
-                  <a href="#" class="ipad-cta">Dùng thử miễn phí →</a>
+                  <a href="https://app.ladylogin.com" class="ipad-cta" data-i18n="uc-cta">Dùng thử miễn phí →</a>
                 </div>
                 <div class="ipad-panel" id="uc-crypto">
                   <div class="ipad-panel-head">
                     <div class="ipad-panel-emoji">₿</div>
                     <div><div class="ipad-panel-title">Crypto & Web3</div><div class="ipad-panel-sub">Crypto · Anti-Sybil</div></div>
                   </div>
-                  <p class="ipad-panel-desc">Tham gia airdrop, testnet và DeFi với hàng trăm ví riêng biệt. Không lo bị Sybil attack detection.</p>
-                  <ul class="ipad-panel-list">
+                  <p class="ipad-panel-desc" data-i18n="uc-crypto-desc">Tham gia airdrop, testnet và DeFi với hàng trăm ví riêng biệt. Không lo bị Sybil attack detection.</p>
+                  <ul class="ipad-panel-list" data-i18n-html="uc-crypto-list">
                     <li>200+ ví crypto profile độc lập</li>
                     <li>Chống Sybil detection trên mọi chain</li>
                     <li>Tự động hóa task airdrop qua RPA</li>
                     <li>Seed phrase mã hóa local an toàn</li>
                   </ul>
-                  <a href="#" class="ipad-cta">Dùng thử miễn phí →</a>
+                  <a href="https://app.ladylogin.com" class="ipad-cta" data-i18n="uc-cta">Dùng thử miễn phí →</a>
                 </div>
                 <div class="ipad-panel" id="uc-scraping">
                   <div class="ipad-panel-head">
                     <div class="ipad-panel-emoji">🕷️</div>
                     <div><div class="ipad-panel-title">Web Scraping & Data</div><div class="ipad-panel-sub">Scraping · Anti-bot bypass</div></div>
                   </div>
-                  <p class="ipad-panel-desc">Thu thập dữ liệu quy mô lớn không bị chặn. Mỗi request từ IP và fingerprint khác nhau.</p>
-                  <ul class="ipad-panel-list">
+                  <p class="ipad-panel-desc" data-i18n="uc-scraping-desc">Thu thập dữ liệu quy mô lớn không bị chặn. Mỗi request từ IP và fingerprint khác nhau.</p>
+                  <ul class="ipad-panel-list" data-i18n-html="uc-scraping-list">
                     <li>Rotating proxy + fingerprint tự động</li>
                     <li>Bypass anti-bot: Cloudflare, DataDome</li>
                     <li>Puppeteer API cho scraping automation</li>
                     <li>Thu thập giá, sản phẩm, review hàng loạt</li>
                   </ul>
-                  <a href="#" class="ipad-cta">Dùng thử miễn phí →</a>
+                  <a href="https://app.ladylogin.com" class="ipad-cta" data-i18n="uc-cta">Dùng thử miễn phí →</a>
                 </div>
                 <div class="ipad-panel" id="uc-ads">
                   <div class="ipad-panel-head">
                     <div class="ipad-panel-emoji">📊</div>
-                    <div><div class="ipad-panel-title">Quảng cáo số</div><div class="ipad-panel-sub">Ads · Multi-account</div></div>
+                    <div><div class="ipad-panel-title" data-i18n="uc-ads-title">Quảng cáo số</div><div class="ipad-panel-sub">Ads · Multi-account</div></div>
                   </div>
-                  <p class="ipad-panel-desc">Chạy nhiều tài khoản Facebook Ads, Google Ads, TikTok Ads song song. Test creative và tối ưu ROAS.</p>
-                  <ul class="ipad-panel-list">
+                  <p class="ipad-panel-desc" data-i18n="uc-ads-desc">Chạy nhiều tài khoản Facebook Ads, Google Ads, TikTok Ads song song. Test creative và tối ưu ROAS.</p>
+                  <ul class="ipad-panel-list" data-i18n-html="uc-ads-list">
                     <li>Nhiều BM / Ad Account độc lập</li>
                     <li>Nuôi tài khoản quảng cáo an toàn</li>
                     <li>Test creative từ nhiều account</li>
                     <li>Tránh share blacklist giữa các account</li>
                   </ul>
-                  <a href="#" class="ipad-cta">Dùng thử miễn phí →</a>
+                  <a href="https://app.ladylogin.com" class="ipad-cta" data-i18n="uc-cta">Dùng thử miễn phí →</a>
                 </div>
                 <div class="ipad-panel" id="uc-agency">
                   <div class="ipad-panel-head">
                     <div class="ipad-panel-emoji">🏢</div>
-                    <div><div class="ipad-panel-title">Agency & Doanh nghiệp</div><div class="ipad-panel-sub">Agency · Team management</div></div>
+                    <div><div class="ipad-panel-title" data-i18n="uc-agency-title">Agency & Doanh nghiệp</div><div class="ipad-panel-sub">Agency · Team management</div></div>
                   </div>
-                  <p class="ipad-panel-desc">Chia sẻ profile cho từng thành viên với quyền riêng. Quản lý nhiều khách hàng trong một nền tảng.</p>
-                  <ul class="ipad-panel-list">
+                  <p class="ipad-panel-desc" data-i18n="uc-agency-desc">Chia sẻ profile cho từng thành viên với quyền riêng. Quản lý nhiều khách hàng trong một nền tảng.</p>
+                  <ul class="ipad-panel-list" data-i18n-html="uc-agency-list">
                     <li>Phân quyền: Admin, Member, Viewer</li>
                     <li>Nhóm profile theo khách hàng / dự án</li>
                     <li>Nhật ký hành động từng thành viên</li>
                     <li>Chuyển nhượng profile giữa thành viên</li>
                   </ul>
-                  <a href="#" class="ipad-cta">Dùng thử miễn phí →</a>
+                  <a href="https://app.ladylogin.com" class="ipad-cta" data-i18n="uc-cta">Dùng thử miễn phí →</a>
                 </div>
                 <div class="ipad-panel" id="uc-game">
                   <div class="ipad-panel-head">
                     <div class="ipad-panel-emoji">🎮</div>
                     <div><div class="ipad-panel-title">Game & Airdrop</div><div class="ipad-panel-sub">Gaming · Farm automation</div></div>
                   </div>
-                  <p class="ipad-panel-desc">Chơi game kiếm tiền, farming token từ nhiều tài khoản riêng biệt với danh tính số khác nhau.</p>
-                  <ul class="ipad-panel-list">
+                  <p class="ipad-panel-desc" data-i18n="uc-game-desc">Chơi game kiếm tiền, farming token từ nhiều tài khoản riêng biệt với danh tính số khác nhau.</p>
+                  <ul class="ipad-panel-list" data-i18n-html="uc-game-list">
                     <li>Farm nhiều tài khoản game song song</li>
                     <li>Tham gia event / giftcode từ nhiều acc</li>
                     <li>Tự động hóa task game lặp lại qua RPA</li>
                     <li>Quản lý inventory nhiều nhân vật</li>
                   </ul>
-                  <a href="#" class="ipad-cta">Dùng thử miễn phí →</a>
+                  <a href="https://app.ladylogin.com" class="ipad-cta" data-i18n="uc-cta">Dùng thử miễn phí →</a>
                 </div>
                 <div class="ipad-panel" id="uc-seo">
                   <div class="ipad-panel-head">
                     <div class="ipad-panel-emoji">🔍</div>
                     <div><div class="ipad-panel-title">SEO & SERP</div><div class="ipad-panel-sub">SEO · 50+ countries</div></div>
                   </div>
-                  <p class="ipad-panel-desc">Kiểm tra SERP từ nhiều vị trí địa lý, theo dõi thứ hạng từ khóa và bypass Google personalization.</p>
-                  <ul class="ipad-panel-list">
+                  <p class="ipad-panel-desc" data-i18n="uc-seo-desc">Kiểm tra SERP từ nhiều vị trí địa lý, theo dõi thứ hạng từ khóa và bypass Google personalization.</p>
+                  <ul class="ipad-panel-list" data-i18n-html="uc-seo-list">
                     <li>Kiểm tra SERP từ 50+ quốc gia</li>
                     <li>Track keyword ranking đa vùng địa lý</li>
                     <li>Bypass Google personalization</li>
                     <li>Auto screenshot & export SERP data</li>
                   </ul>
-                  <a href="#" class="ipad-cta">Dùng thử miễn phí →</a>
+                  <a href="https://app.ladylogin.com" class="ipad-cta" data-i18n="uc-cta">Dùng thử miễn phí →</a>
                 </div>
               </div>
             </div>
@@ -640,9 +772,9 @@
     <div class="container">
       <div class="fp-inner">
         <div>
-          <div class="section-tag">Anti-Detect Technology</div>
-          <h2 class="section-title">Fingerprint Không Thể Phân Biệt Được</h2>
-          <p class="section-desc">
+          <div class="section-tag" data-i18n="fp-tag">Anti-Detect Technology</div>
+          <h2 class="section-title" data-i18n="fp-h2">Fingerprint Không Thể Phân Biệt Được</h2>
+          <p class="section-desc" data-i18n="fp-desc">
             Công nghệ giả lập fingerprint tiên tiến tạo ra các profile browser hoàn toàn
             độc lập, không thể liên kết với nhau dưới bất kỳ hình thức nào.
           </p>
@@ -714,9 +846,9 @@
   <section class="security-section">
     <div class="container">
       <div class="security-header">
-        <div class="section-tag">Bảo mật</div>
-        <h2>Dẫn đầu về Bảo mật<br>Dữ liệu & Trình duyệt</h2>
-        <p>Bước tiến bảo mật của LadyLogin — bảo vệ bạn từ nhiều lớp</p>
+        <div class="section-tag" data-i18n="sec-tag">Bảo mật</div>
+        <h2 data-i18n-html="sec-h2">Dẫn đầu về Bảo mật<br>Dữ liệu & Trình duyệt</h2>
+        <p data-i18n="sec-p">Bước tiến bảo mật của LadyLogin — bảo vệ bạn từ nhiều lớp</p>
       </div>
       <div class="security-grid">
         <div class="security-card">
@@ -735,8 +867,8 @@
             <path d="M11 30v3h3" stroke="#E53935" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
             <path d="M37 30v3h-3" stroke="#E53935" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
           </svg></div>
-          <h3>Quyền hồ sơ chính xác</h3>
-          <p>Kiểm soát quyền truy cập hơn bao giờ hết. LadyLogin đảm bảo các quyền dành riêng cho từng người dùng: hạn chế sử dụng trái phép, nhắc nhở đăng nhập bất thường, áp dụng 2FA, theo dõi nhật ký hành động — bảo mật phù hợp khi cộng tác nhóm.</p>
+          <h3 data-i18n="sec-1-h3">Quyền hồ sơ chính xác</h3>
+          <p data-i18n="sec-1-p">Kiểm soát quyền truy cập hơn bao giờ hết. LadyLogin đảm bảo các quyền dành riêng cho từng người dùng: hạn chế sử dụng trái phép, nhắc nhở đăng nhập bất thường, áp dụng 2FA, theo dõi nhật ký hành động — bảo mật phù hợp khi cộng tác nhóm.</p>
         </div>
         <div class="security-card">
           <div class="security-icon"><svg width="48" height="48" viewBox="0 0 48 48" fill="none">
@@ -752,8 +884,8 @@
             <circle cx="32" cy="28" r="1" fill="#E53935" opacity="0.4"/>
             <path d="M10 28h4M34 28h4M10 32h2M36 32h2" stroke="#E53935" stroke-width="1" stroke-linecap="round" opacity="0.3"/>
           </svg></div>
-          <h3>Truyền & lưu trữ mã hóa</h3>
-          <p>Sử dụng mã hóa đầu cuối nâng cao để bảo vệ thông tin đăng nhập, hoạt động duyệt web và dữ liệu nhạy cảm. Tất cả dữ liệu chỉ lưu trên thiết bị cục bộ của bạn — nếu không được phép, không có gì được đồng bộ ra ngoài.</p>
+          <h3 data-i18n="sec-2-h3">Truyền & lưu trữ mã hóa</h3>
+          <p data-i18n="sec-2-p">Sử dụng mã hóa đầu cuối nâng cao để bảo vệ thông tin đăng nhập, hoạt động duyệt web và dữ liệu nhạy cảm. Tất cả dữ liệu chỉ lưu trên thiết bị cục bộ của bạn — nếu không được phép, không có gì được đồng bộ ra ngoài.</p>
         </div>
         <div class="security-card">
           <div class="security-icon"><svg width="48" height="48" viewBox="0 0 48 48" fill="none">
@@ -764,8 +896,8 @@
             <circle cx="33" cy="33" r="6" fill="#FFF0F0" stroke="#E53935" stroke-width="1.5"/>
             <path d="M30 33 L32 35 L36 31" stroke="#E53935" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg></div>
-          <h3>Bảo vệ Extension</h3>
-          <p>Tất cả extension trong LadyLogin đều từ thư viện chính thức và sẽ không được cập nhật tự động. Điều này giúp tránh cài đặt phần mềm độc hại hoặc các lỗ hổng bảo mật ẩn trong các bản cập nhật không kiểm soát.</p>
+          <h3 data-i18n="sec-3-h3">Bảo vệ Extension</h3>
+          <p data-i18n="sec-3-p">Tất cả extension trong LadyLogin đều từ thư viện chính thức và sẽ không được cập nhật tự động. Điều này giúp tránh cài đặt phần mềm độc hại hoặc các lỗ hổng bảo mật ẩn trong các bản cập nhật không kiểm soát.</p>
         </div>
         <div class="security-card">
           <div class="security-icon"><svg width="48" height="48" viewBox="0 0 48 48" fill="none">
@@ -789,8 +921,8 @@
             <!-- Target crosshair overlay -->
             <circle cx="24" cy="26" r="3.5" stroke="#E53935" stroke-width="1.5" opacity="0.5"/>
           </svg></div>
-          <h3>Chương trình Bug Bounty</h3>
-          <p>Chúng tôi hoan nghênh các nhà nghiên cứu bảo mật (white hats) báo cáo lỗ hổng của LadyLogin để giúp cải thiện tính bảo mật. Mọi báo cáo hợp lệ đều được ghi nhận và khen thưởng xứng đáng.</p>
+          <h3 data-i18n="sec-4-h3">Chương trình Bug Bounty</h3>
+          <p data-i18n="sec-4-p">Chúng tôi hoan nghênh các nhà nghiên cứu bảo mật (white hats) báo cáo lỗ hổng của LadyLogin để giúp cải thiện tính bảo mật. Mọi báo cáo hợp lệ đều được ghi nhận và khen thưởng xứng đáng.</p>
         </div>
       </div>
     </div>
@@ -799,44 +931,44 @@
     <section id="faq" class="section section-alt">
       <div class="container">
         <div class="section-head">
-          <div class="section-eyebrow">FAQ</div>
-          <h2>Câu hỏi thường gặp</h2>
+          <div class="section-eyebrow" data-i18n="faq-eyebrow">FAQ</div>
+          <h2 data-i18n="faq-h2">Câu hỏi thường gặp</h2>
         </div>
         <div class="faq-list">
           <details>
             <summary>
-              <span>LadyLogin có hợp pháp không?</span>
+              <span data-i18n="faq-1-q">LadyLogin có hợp pháp không?</span>
               <svg class="chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </summary>
-            <div class="faq-answer"><p>Có. LadyLogin là công cụ bảo vệ quyền riêng tư hợp pháp, tương tự như VPN hay proxy. Việc sử dụng phụ thuộc vào mục đích của người dùng và điều khoản của từng nền tảng.</p></div>
+            <div class="faq-answer" data-i18n-html="faq-1-a"><p>Có. LadyLogin là công cụ bảo vệ quyền riêng tư hợp pháp, tương tự như VPN hay proxy. Việc sử dụng phụ thuộc vào mục đích của người dùng và điều khoản của từng nền tảng.</p></div>
           </details>
           <details>
             <summary>
-              <span>Tôi có thể chuyển dữ liệu từ hệ thống cũ không?</span>
+              <span data-i18n="faq-2-q">Tôi có thể chuyển dữ liệu từ hệ thống cũ không?</span>
               <svg class="chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </summary>
-            <div class="faq-answer"><p>Có. Đội ngũ hỗ trợ sẽ migration theo checklist chuẩn, đảm bảo downtime tối thiểu. Hỗ trợ import từ Multilogin, GoLogin, AdsPower và các tool phổ biến.</p></div>
+            <div class="faq-answer" data-i18n-html="faq-2-a"><p>Có. Đội ngũ hỗ trợ sẽ migration theo checklist chuẩn, đảm bảo downtime tối thiểu. Hỗ trợ import từ Multilogin, GoLogin, AdsPower và các tool phổ biến.</p></div>
           </details>
           <details>
             <summary>
-              <span>Onboarding mất bao lâu?</span>
+              <span data-i18n="faq-3-q">Onboarding mất bao lâu?</span>
               <svg class="chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </summary>
-            <div class="faq-answer"><p>Phần lớn người dùng hoàn thành setup trong dưới 10 phút. Tài liệu hướng dẫn chi tiết và video tutorial sẵn có. Team hỗ trợ hỗ trợ 1:1 nếu cần.</p></div>
+            <div class="faq-answer" data-i18n-html="faq-3-a"><p>Phần lớn người dùng hoàn thành setup trong dưới 10 phút. Tài liệu hướng dẫn chi tiết và video tutorial sẵn có. Team hỗ trợ hỗ trợ 1:1 nếu cần.</p></div>
           </details>
           <details>
             <summary>
-              <span>Có thể mở rộng cho nhiều team không?</span>
+              <span data-i18n="faq-4-q">Có thể mở rộng cho nhiều team không?</span>
               <svg class="chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </summary>
-            <div class="faq-answer"><p>Hoàn toàn có thể. Bạn tạo nhiều workspace, phân quyền role (Admin, Member, Viewer) và theo dõi hoạt động từng team riêng biệt.</p></div>
+            <div class="faq-answer" data-i18n-html="faq-4-a"><p>Hoàn toàn có thể. Bạn tạo nhiều workspace, phân quyền role (Admin, Member, Viewer) và theo dõi hoạt động từng team riêng biệt.</p></div>
           </details>
           <details>
             <summary>
-              <span>Thanh toán bằng hình thức nào?</span>
+              <span data-i18n="faq-5-q">Thanh toán bằng hình thức nào?</span>
               <svg class="chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </summary>
-            <div class="faq-answer"><p>Chấp nhận chuyển khoản ngân hàng, MoMo, ZaloPay, thẻ quốc tế Visa/Mastercard và USDT. Xuất hóa đơn VAT theo yêu cầu.</p></div>
+            <div class="faq-answer" data-i18n-html="faq-5-a"><p>Chấp nhận chuyển khoản ngân hàng, MoMo, ZaloPay, thẻ quốc tế Visa/Mastercard và USDT. Xuất hóa đơn VAT theo yêu cầu.</p></div>
           </details>
         </div>
       </div>
@@ -845,11 +977,11 @@
     <section class="cta-section">
       <div class="container">
         <div class="cta-inner">
-          <h2>Sẵn sàng tăng trưởng không giới hạn?</h2>
-          <p>Tham gia cùng 50,000+ người dùng đang dùng LadyLogin để quản lý và scale tài khoản hiệu quả.</p>
+          <h2 data-i18n="cta-h2">Sẵn sàng tăng trưởng không giới hạn?</h2>
+          <p data-i18n="cta-p">Tham gia cùng 50,000+ người dùng đang dùng LadyLogin để quản lý và scale tài khoản hiệu quả.</p>
           <div class="cta-buttons">
-            <a class="btn btn-white btn-lg" href="#">Bắt đầu miễn phí ngay</a>
-            <a class="btn btn-ghost-white btn-lg" href="#">Liên hệ Tư vấn →</a>
+            <a class="btn btn-white btn-lg" href="https://app.ladylogin.com" data-i18n="cta-btn-1">Bắt đầu miễn phí ngay</a>
+            <a class="btn btn-ghost-white btn-lg" href="https://app.ladylogin.com" data-i18n="cta-btn-2">Liên hệ Tư vấn →</a>
           </div>
         </div>
       </div>
@@ -858,9 +990,9 @@
     <section id="download" class="dl-section">
       <div class="container">
         <div class="section-head">
-          <div class="section-eyebrow">Tải xuống</div>
-          <h2>Bắt đầu trong vài phút</h2>
-          <p>Cài đặt nhanh trên Windows hoặc macOS. Không cần cấu hình phức tạp — mở lên là dùng được ngay.</p>
+          <div class="section-eyebrow" data-i18n="dl-eyebrow">Tải xuống</div>
+          <h2 data-i18n="dl-h2">Bắt đầu trong vài phút</h2>
+          <p data-i18n="dl-p">Cài đặt nhanh trên Windows hoặc macOS. Không cần cấu hình phức tạp — mở lên là dùng được ngay.</p>
         </div>
 
         <div class="dl-grid">
@@ -876,11 +1008,11 @@
               <div class="dl-platform">Windows</div>
               <div class="dl-meta">64-bit · v3.0.1 · 148 MB</div>
             </div>
-            <a href="#" class="btn btn-primary btn-lg dl-btn">
+            <a href="https://app.ladylogin.com" class="btn btn-primary btn-lg dl-btn">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2v9M4 8l4 4 4-4M2 14h12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Tải về
+              <span data-i18n="dl-win-btn">Tải về</span>
             </a>
-            <div class="dl-req">Windows 10/11 trở lên</div>
+            <div class="dl-req" data-i18n="dl-win-req">Windows 10/11 trở lên</div>
           </div>
 
           <!-- macOS -->
@@ -894,11 +1026,11 @@
               <div class="dl-platform">macOS</div>
               <div class="dl-meta">Apple Silicon &amp; Intel · v3.0.1 · 162 MB</div>
             </div>
-            <a href="#" class="btn btn-outline btn-lg dl-btn">
+            <a href="https://app.ladylogin.com" class="btn btn-outline btn-lg dl-btn">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2v9M4 8l4 4 4-4M2 14h12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Tải về
+              <span data-i18n="dl-mac-btn">Tải về</span>
             </a>
-            <div class="dl-req">macOS 12 Monterey trở lên</div>
+            <div class="dl-req" data-i18n="dl-mac-req">macOS 12 Monterey trở lên</div>
           </div>
 
           <!-- Web -->
@@ -911,24 +1043,24 @@
             </div>
             <div class="dl-card-info">
               <div class="dl-platform">Web App</div>
-              <div class="dl-meta">Không cần cài đặt · Luôn cập nhật</div>
+              <div class="dl-meta" data-i18n="dl-web-meta">Không cần cài đặt · Luôn cập nhật</div>
             </div>
-            <a href="#" class="btn btn-outline btn-lg dl-btn">
-              Mở trên trình duyệt →
+            <a href="https://app.ladylogin.com" class="btn btn-outline btn-lg dl-btn">
+              <span data-i18n="dl-web-btn">Mở trên trình duyệt →</span>
             </a>
-            <div class="dl-req">Chrome, Edge, Firefox mới nhất</div>
+            <div class="dl-req" data-i18n="dl-web-req">Chrome, Edge, Firefox mới nhất</div>
           </div>
 
         </div>
 
         <div class="dl-footer-note">
-          <span>✓ Miễn phí cài đặt</span>
+          <span data-i18n="dl-note-1">✓ Miễn phí cài đặt</span>
           <span class="trust-sep"></span>
-          <span>✓ Không cần thẻ tín dụng</span>
+          <span data-i18n="dl-note-2">✓ Không cần thẻ tín dụng</span>
           <span class="trust-sep"></span>
-          <span>✓ Dùng thử 7 ngày</span>
+          <span data-i18n="dl-note-3">✓ Dùng thử 7 ngày</span>
           <span class="trust-sep"></span>
-          <span>✓ Cập nhật tự động</span>
+          <span data-i18n="dl-note-4">✓ Cập nhật tự động</span>
         </div>
       </div>
     </section>
@@ -950,7 +1082,7 @@
             </span>
             <span class="brand-text">LadyLogin</span>
           </a>
-          <p>Nền tảng anti-detect browser hàng đầu Việt Nam. Phục vụ hơn 50,000 người dùng trong eCommerce, MMO, affiliate và crypto.</p>
+          <p data-i18n="footer-brand-p">Nền tảng anti-detect browser hàng đầu Việt Nam. Phục vụ hơn 50,000 người dùng trong eCommerce, MMO, affiliate và crypto.</p>
           <div class="footer-contact">
             <a href="mailto:support@ladylogin.com">
               <span class="footer-contact-icon">✉</span>
@@ -977,18 +1109,18 @@
 
         <!-- Sản phẩm -->
         <div class="footer-col">
-          <h4>Sản phẩm</h4>
-          <a href="#">Tính năng</a>
-          <a href="#">Bảng giá</a>
-          <a href="#">Changelog</a>
-          <a href="#">Roadmap</a>
-          <a href="#">Tải về Windows</a>
-          <a href="#">Tải về macOS</a>
+          <h4 data-i18n="footer-col-1-h4">Sản phẩm</h4>
+          <a href="#features">Tính năng</a>
+          <a href="#pricing">Bảng giá</a>
+          <a href="#changelog">Changelog</a>
+          <a href="#roadmap">Roadmap</a>
+          <a href="#download-windows">Tải về Windows</a>
+          <a href="#download-macos">Tải về macOS</a>
         </div>
 
         <!-- Tài nguyên -->
         <div class="footer-col">
-          <h4>Tài nguyên</h4>
+          <h4 data-i18n="footer-col-2-h4">Tài nguyên</h4>
           <a href="#">Tài liệu hướng dẫn</a>
           <a href="#">API Reference</a>
           <a href="#">Blog</a>
@@ -999,7 +1131,7 @@
 
         <!-- Hỗ trợ -->
         <div class="footer-col">
-          <h4>Hỗ trợ</h4>
+          <h4 data-i18n="footer-col-3-h4">Hỗ trợ</h4>
           <a href="#">Telegram Channel</a>
           <a href="#">Zalo Official Account</a>
           <a href="#">Facebook Group</a>
@@ -1012,7 +1144,7 @@
 
       <!-- Payment & trust -->
       <div class="footer-trust">
-        <span class="footer-trust-label">Phương thức thanh toán</span>
+        <span class="footer-trust-label" data-i18n="footer-trust-label">Phương thức thanh toán</span>
         <div class="footer-badges">
           <span class="fbadge">Chuyển khoản</span>
           <span class="fbadge">MoMo</span>
@@ -1026,13 +1158,13 @@
 
     <div class="footer-bottom">
       <div class="container">
-        <p>© 2025 LadyLogin. Bảo lưu mọi quyền.</p>
+        <p data-i18n="footer-bottom">© 2025 LadyLogin. Bảo lưu mọi quyền.</p>
         <div class="footer-legal">
-          <a href="#">Chính sách bảo mật</a>
-          <a href="#">Điều khoản sử dụng</a>
+          <a href="#" data-i18n="footer-legal-1">Chính sách bảo mật</a>
+          <a href="#" data-i18n="footer-legal-2">Điều khoản sử dụng</a>
           <a href="#">Cookie Policy</a>
         </div>
-        <p>Thiết kế tại Việt Nam 🇻🇳</p>
+        <p data-i18n="footer-designed">Thiết kế tại Việt Nam 🇻🇳</p>
       </div>
     </div>
   </footer>
@@ -1048,17 +1180,111 @@
       requestAnimationFrame(() => next.classList.add("active"));
     }
 
+    // ── Nav Dropdowns (hover desktop / click mobile) ──────────
+    const isMobile = () => window.innerWidth <= 768;
+
+    document.querySelectorAll(".nav-dropdown").forEach(dropdown => {
+      const btn = dropdown.querySelector(".nav-dropdown-btn");
+      let timer;
+
+      function openDropdown() {
+        clearTimeout(timer);
+        dropdown.classList.add("open");
+        btn.setAttribute("aria-expanded", "true");
+      }
+      function closeDropdown() {
+        timer = setTimeout(() => {
+          dropdown.classList.remove("open");
+          btn.setAttribute("aria-expanded", "false");
+        }, 80);
+      }
+
+      // Desktop: hover
+      dropdown.addEventListener("mouseenter", () => { if (!isMobile()) openDropdown(); });
+      dropdown.addEventListener("mouseleave", () => { if (!isMobile()) closeDropdown(); });
+
+      // Mobile: click toggle
+      btn.addEventListener("click", (e) => {
+        if (!isMobile()) return;
+        e.stopPropagation();
+        const isOpen = dropdown.classList.contains("open");
+        // Đóng tất cả dropdown khác
+        document.querySelectorAll(".nav-dropdown.open").forEach(d => {
+          d.classList.remove("open");
+          d.querySelector(".nav-dropdown-btn").setAttribute("aria-expanded", "false");
+        });
+        if (!isOpen) openDropdown();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeDropdown();
+      });
+    });
+
+    // Click ngoài đóng tất cả dropdown trên mobile
+    document.addEventListener("click", () => {
+      if (!isMobile()) return;
+      document.querySelectorAll(".nav-dropdown.open").forEach(d => {
+        d.classList.remove("open");
+        d.querySelector(".nav-dropdown-btn").setAttribute("aria-expanded", "false");
+      });
+    });
+
     // ── Mobile menu ───────────────────────────────────────────
     const menuBtn = document.getElementById("menuBtn");
     const mainNav = document.getElementById("mainNav");
-    menuBtn.addEventListener("click", () => {
+
+    function closeNav() {
+      mainNav.classList.remove("open");
+      menuBtn.setAttribute("aria-expanded", "false");
+    }
+
+    menuBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
       const open = mainNav.classList.toggle("open");
       menuBtn.setAttribute("aria-expanded", open);
     });
+
     mainNav.querySelectorAll("a").forEach(a => {
-      a.addEventListener("click", () => {
-        mainNav.classList.remove("open");
-        menuBtn.setAttribute("aria-expanded", "false");
+      a.addEventListener("click", closeNav);
+    });
+
+    document.addEventListener("click", (e) => {
+      if (mainNav.classList.contains("open") && !mainNav.contains(e.target) && e.target !== menuBtn) {
+        closeNav();
+      }
+    });
+
+    // ── FAQ animation ─────────────────────────────────────────
+    document.querySelectorAll("#faq details").forEach(detail => {
+      const summary = detail.querySelector("summary");
+      const answer  = detail.querySelector(".faq-answer");
+
+      // Khi ĐÓNG: intercept click, animate xuống rồi mới đóng
+      summary.addEventListener("click", e => {
+        if (!detail.open) return; // đang đóng → để browser mở tự nhiên
+        e.preventDefault();
+        answer.style.maxHeight = answer.scrollHeight + "px";
+        requestAnimationFrame(() => {
+          answer.style.maxHeight = "0";
+        });
+        answer.addEventListener("transitionend", e => {
+          if (e.propertyName !== "max-height") return;
+          detail.open = false;
+        }, { once: true });
+      });
+
+      // Khi MỞ: browser toggle open → animate lên
+      detail.addEventListener("toggle", () => {
+        if (!detail.open) return;
+        answer.style.maxHeight = "0";
+        requestAnimationFrame(() => {
+          answer.style.maxHeight = answer.scrollHeight + "px";
+        });
+        answer.addEventListener("transitionend", e => {
+          if (e.propertyName !== "max-height") return;
+          answer.style.maxHeight = "none";
+        }, { once: true });
       });
     });
 
@@ -1084,13 +1310,67 @@
       }, { passive: true });
     }
 
+    // ── Stat counter ──────────────────────────────────────────
+    // Store original values once on load
+    const statData = Array.from(document.querySelectorAll(".stat-number")).map(el => {
+      const span = el.querySelector("span");
+      return {
+        el,
+        raw: el.firstChild.textContent.trim(),
+        suffix: span ? span.textContent : ""
+      };
+    });
+
+    function animateCounter({ el, raw, suffix }) {
+      const isM     = raw.includes("M");
+      const isFloat = raw.includes(".");
+      const target  = parseFloat(raw.replace(/,/g, "").replace(/[^0-9.]/g, ""));
+      let raf, t0 = null;
+      const duration = 1600;
+      const tick = (ts) => {
+        if (!t0) t0 = ts;
+        const p    = Math.min((ts - t0) / duration, 1);
+        const ease = 1 - Math.pow(1 - p, 4);
+        const val  = ease * target;
+        let display;
+        if (isFloat)        display = val.toFixed(1);
+        else if (isM)       display = Math.round(val) + "M";
+        else if (target >= 1000) display = Math.round(val).toLocaleString("en-US");
+        else                display = Math.round(val).toString();
+        el.innerHTML = display + "<span>" + suffix + "</span>";
+        if (p < 1) raf = requestAnimationFrame(tick);
+      };
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(tick);
+    }
+
+    // Re-run every time stats section enters view
+    const statsGrid = document.querySelector(".stats-grid");
+    if (statsGrid) {
+      const statsIO = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            statData.forEach((d, i) => setTimeout(() => animateCounter(d), 350 + i * 120));
+          } else {
+            // Reset to zero so next entry starts fresh
+            statData.forEach(d => {
+              d.el.innerHTML = "0<span>" + d.suffix + "</span>";
+            });
+          }
+        });
+      }, { threshold: 0.25 });
+      statsIO.observe(statsGrid);
+    }
+
     // ── Scroll reveal ─────────────────────────────────────────
     const revealEls = document.querySelectorAll(
       ".hero-content, .hero-visual, .brands-section .container, .stats-grid, .section-head, .feature-card, .pricing-card, .dl-card, .security-card, .fp-inner > div:first-child, .fp-visual, .step-item, .testimonial, details, .cta-inner, .footer-top"
     );
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add("in-view"); io.unobserve(e.target); }
+        if (!e.isIntersecting) return;
+        e.target.classList.add("in-view");
+        io.unobserve(e.target);
       });
     }, { threshold: 0.08, rootMargin: "0px 0px -48px 0px" });
     revealEls.forEach(el => io.observe(el));
@@ -1107,44 +1387,26 @@
     }, { threshold: 0.35 });
     document.querySelectorAll("main section[id]").forEach(s => sectionIO.observe(s));
 
-    // ── Stat counter animation ────────────────────────────────
-    const countIO = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (!e.isIntersecting) return;
-        const el = e.target;
-        const span = el.querySelector("span");
-        const suffix = span ? span.textContent : "";
-        const rawText = el.firstChild.textContent.trim();
-        const isM = rawText.includes("M");
-        const numStr = rawText.replace(/,/g, "").replace(/[^0-9.]/g, "");
-        const target = parseFloat(numStr);
-        const isFloat = rawText.includes(".");
-        let t0 = null;
-        const duration = 1500;
-        const tick = (ts) => {
-          if (!t0) t0 = ts;
-          const p = Math.min((ts - t0) / duration, 1);
-          const ease = 1 - Math.pow(1 - p, 4);
-          const val = ease * target;
-          let display;
-          if (isFloat) display = val.toFixed(1);
-          else if (isM) display = Math.round(val) + "M";
-          else if (target >= 1000) display = Math.round(val).toLocaleString("en-US");
-          else display = Math.round(val).toString();
-          el.innerHTML = display + "<span>" + suffix + "</span>";
-          if (p < 1) requestAnimationFrame(tick);
-        };
-        requestAnimationFrame(tick);
-        countIO.unobserve(el);
-      });
-    }, { threshold: 0.8 });
-    document.querySelectorAll(".stat-number").forEach(el => countIO.observe(el));
-
-    // ── FAQ smooth open/close ─────────────────────────────────
+    // ── FAQ smooth open/close ──────────────────────────────────
     document.querySelectorAll("details").forEach(detail => {
-      const answer = detail.querySelector(".faq-answer");
-      detail.addEventListener("toggle", () => {
-        answer.style.maxHeight = detail.open ? answer.scrollHeight + "px" : "0";
+      const summary = detail.querySelector("summary");
+      const answer  = detail.querySelector(".faq-answer");
+
+      summary.addEventListener("click", e => {
+        e.preventDefault();
+        if (detail.open) {
+          answer.style.maxHeight = answer.scrollHeight + "px";
+          requestAnimationFrame(() => requestAnimationFrame(() => {
+            answer.style.maxHeight = "0";
+          }));
+          setTimeout(() => detail.removeAttribute("open"), 420);
+        } else {
+          detail.setAttribute("open", "");
+          answer.style.maxHeight = "0";
+          requestAnimationFrame(() => requestAnimationFrame(() => {
+            answer.style.maxHeight = answer.scrollHeight + "px";
+          }));
+        }
       });
     });
 
@@ -1239,6 +1501,274 @@
     }
 
     initCarousels();
+
+    // ── Language switcher ─────────────────────────────────────
+    const translations = {
+      vi: {
+        'announce-badge': 'Mới',
+        'announce-text': 'LadyLogin 3.0 ra mắt — Hỗ trợ Android profile và proxy rotation thông minh.',
+        'announce-link': 'Tìm hiểu thêm →',
+        'nav-features': 'Tính Năng', 'nav-solutions': 'Giải Pháp', 'nav-resources': 'Tài Nguyên', 'nav-about': 'Giới Thiệu', 'nav-guide': 'Hướng Dẫn', 'nav-pricing': 'Bảng Giá',
+        'feat-multi-account': 'Quản lý Đa tài khoản', 'feat-multi-window': 'Đồng bộ hóa Đa cửa sổ', 'feat-rpa': 'Tự động hóa RPA', 'feat-api': 'Tích hợp API Local', 'feat-bulk': 'Thao tác Hồ sơ Hàng loạt', 'feat-team': 'Phân quyền &amp; Làm việc nhóm', 'feat-cloud': 'Hệ sinh thái Cloud Phone', 'feat-security': 'Bảo mật Tài khoản Toàn diện',
+        'sol-tag': 'Giải pháp', 'sol-sub': 'Đối tác đáng tin cậy trong mọi lĩnh vực', 'sol-ecommerce': 'Thương mại Điện tử', 'sol-affiliate': 'Tiếp thị Liên kết', 'sol-social': 'Mạng Xã hội', 'sol-crypto': 'Crypto', 'sol-scraping': 'Web Scraping', 'sol-ads': 'Quảng cáo Số', 'sol-agency': 'Agency', 'sol-game': 'Game &amp; Airdrop', 'sol-seo': 'SEO &amp; SERP',
+        'res-blog': 'Blog &amp; Kiến thức', 'res-partner': 'Chương trình Đối tác', 'res-community': 'Cộng đồng Người dùng', 'res-support': 'Trung tâm Hỗ trợ', 'res-video': 'Video Hướng dẫn', 'res-brand': 'Câu chuyện Thương hiệu',
+        'btn-login': 'Đăng nhập', 'btn-start': 'Bắt đầu miễn phí',
+        'hero-badge': 'Anti-Detect Browser #1 Việt Nam',
+        'hero-h1': 'Quản lý đa tài khoản<br><span class="gradient-text">An Toàn · Tự Động · Hiệu Quả</span>',
+        'hero-desc': 'Hàng nghìn tài khoản Facebook, TikTok, Shopee, Amazon — mỗi profile một fingerprint độc lập. Không bị phát hiện, không bị ban, tăng trưởng không giới hạn.',
+        'hero-cta-1': 'Dùng thử miễn phí 7 ngày', 'hero-cta-2': 'Xem demo',
+        'trust-1': 'Không cần thẻ tín dụng', 'trust-2': 'Onboard dưới 10 phút',
+        'trust-3': 'Hỗ trợ 24/7', 'trust-4': '50,000+ người dùng',
+        'fc-sub-1': 'Tất cả profiles sạch', 'fc-sub-2': 'Hoàn thành hôm nay',
+        'kpi-auto': 'Auto/ngày', 'kpi-stable': 'Ổn định', 'kpi-trend-1': '+12 hôm nay',
+        'brands-label': 'Được tin dùng bởi các team tăng trưởng hàng đầu',
+        'partner-label': 'Tương thích với mọi nền tảng bạn đang dùng',
+        'stat-1': 'Người dùng hoạt động', 'stat-2': 'Profile được tạo',
+        'stat-3': 'Uptime đảm bảo', 'stat-4': 'Quốc gia &amp; Khu vực',
+        'feat-eyebrow': 'Tính năng',
+        'feat-h2': 'Mọi thứ bạn cần để quản lý<br>đa tài khoản chuyên nghiệp',
+        'feat-p': 'Được thiết kế cho cá nhân lẫn team lớn — từ setup nhanh đến automation toàn diện.',
+        'feat-1-p': 'Tạo và quản lý hàng trăm profile độc lập với fingerprint riêng biệt. Tổ chức theo folder, tag và workspace.',
+        'feat-2-p': 'Giả lập Canvas, WebGL, Audio, Font, Timezone và hàng chục tham số fingerprint khác. Không nền tảng nào phát hiện được.',
+        'feat-3-p': 'Tích hợp sẵn HTTP, SOCKS5 và Residential proxy. Hỗ trợ rotation tự động và health check định kỳ.',
+        'feat-4-p': 'Phân quyền chi tiết theo role. Thành viên chỉ thấy và thao tác trên profile được giao — an toàn tuyệt đối.',
+        'feat-5-p': 'Chạy batch tasks, lập lịch tự động và kết nối qua REST API. Tích hợp với Puppeteer, Playwright dễ dàng.',
+        'feat-6-p': 'Dashboard trực quan — theo dõi trạng thái profile, lịch sử task, success rate và alert khi có sự cố.',
+        'how-eyebrow': 'Quy trình', 'how-h2': 'Từ setup đến chạy — chưa tới 10 phút',
+        'how-desc': 'Không cần kiến thức kỹ thuật. Giao diện trực quan, tài liệu hướng dẫn đầy đủ và đội hỗ trợ sẵn sàng 24/7.',
+        'step-1-h4': 'Tạo workspace &amp; thêm thành viên',
+        'step-1-p': 'Đăng ký tài khoản, tạo workspace và phân quyền cho team chỉ trong vài click.',
+        'step-2-h4': 'Khởi tạo profile theo template',
+        'step-2-p': 'Chọn template có sẵn hoặc tùy chỉnh fingerprint, gắn proxy và lưu cấu hình.',
+        'step-3-h4': 'Chạy tasks &amp; theo dõi realtime',
+        'step-3-p': 'Kích hoạt automation, theo dõi tiến độ qua dashboard và nhận báo cáo chi tiết.',
+        'test-1-q': '"LadyLogin giúp team mình quản lý 500+ tài khoản Facebook Ads mà không lo bị phát hiện. Từ khi dùng, tỷ lệ ban account giảm xuống gần như 0."',
+        'test-1-role': 'Growth Lead tại NovaAds',
+        'test-2-q': '"Automation API của LadyLogin tích hợp với pipeline của mình rất mượt. Tiết kiệm được hàng chục giờ thao tác thủ công mỗi tuần."',
+        'test-2-role': 'CTO tại ScaleHub',
+        'price-eyebrow': 'Bảng giá', 'price-h2': 'Chọn gói phù hợp với quy mô của bạn',
+        'price-p': 'Không phí ẩn. Nâng/hạ gói bất kỳ lúc nào.',
+        'price-badge': 'Phổ biến nhất',
+        'price-starter-p': 'Cho cá nhân và team nhỏ mới bắt đầu.',
+        'price-starter-btn': 'Bắt đầu miễn phí',
+        'price-period-1': '/tháng', 'price-period-2': '/tháng',
+        'price-growth-p': 'Cho team đang scale và cần automation.',
+        'price-growth-btn': 'Dùng thử 7 ngày miễn phí',
+        'price-scale-p': 'Cho doanh nghiệp với nhu cầu không giới hạn.',
+        'price-scale-amount': 'Liên hệ', 'price-scale-btn': 'Liên hệ tư vấn',
+        'uc-tag': 'Giải pháp',
+        'uc-h2': 'Đối tác đáng tin cậy<br>trong mọi lĩnh vực',
+        'uc-desc': 'Từ MMO đến eCommerce, từ cá nhân đến agency — LadyLogin phục vụ mọi nhu cầu.',
+        'uc-ec-title': 'Thương mại điện tử',
+        'uc-ec-desc': 'Quản lý hàng trăm gian hàng Shopee, Lazada, TikTok Shop, Amazon đồng thời. Mỗi shop IP & fingerprint riêng.',
+        'uc-ec-list': '<li>Nhiều gian hàng, một nơi quản lý</li><li>Tự động hóa đăng sản phẩm &amp; đơn hàng</li><li>Proxy tích hợp theo từng khu vực</li><li>Cookie isolation hoàn toàn giữa các acc</li>',
+        'uc-aff-title': 'Tiếp thị liên kết',
+        'uc-aff-desc': 'Chạy nhiều chiến dịch affiliate song song với tài khoản độc lập. Theo dõi hiệu quả từng kênh chính xác.',
+        'uc-aff-list': '<li>Nhiều tài khoản affiliate riêng biệt</li><li>Tracking link tách biệt theo profile</li><li>Đa nền tảng: Shopee, TikTok, Meta</li><li>A/B test landing page từ nhiều IP</li>',
+        'uc-soc-title': 'Social Media Marketing',
+        'uc-soc-desc': 'Quản lý hàng trăm fanpage Facebook, Instagram, kênh TikTok &amp; YouTube. Xây mạng lưới quy mô lớn.',
+        'uc-soc-list': '<li>500+ tài khoản FB/IG/TikTok một nơi</li><li>Đăng bài tự động theo lịch qua RPA</li><li>Nuôi tài khoản mới an toàn từ đầu</li><li>Phân quyền theo nhóm nhân viên</li>',
+        'uc-crypto-desc': 'Tham gia airdrop, testnet và DeFi với hàng trăm ví riêng biệt. Không lo bị Sybil attack detection.',
+        'uc-crypto-list': '<li>200+ ví crypto profile độc lập</li><li>Chống Sybil detection trên mọi chain</li><li>Tự động hóa task airdrop qua RPA</li><li>Seed phrase mã hóa local an toàn</li>',
+        'uc-scraping-desc': 'Thu thập dữ liệu quy mô lớn không bị chặn. Mỗi request từ IP và fingerprint khác nhau.',
+        'uc-scraping-list': '<li>Rotating proxy + fingerprint tự động</li><li>Bypass anti-bot: Cloudflare, DataDome</li><li>Puppeteer API cho scraping automation</li><li>Thu thập giá, sản phẩm, review hàng loạt</li>',
+        'uc-ads-title': 'Quảng cáo số',
+        'uc-ads-desc': 'Chạy nhiều tài khoản Facebook Ads, Google Ads, TikTok Ads song song. Test creative và tối ưu ROAS.',
+        'uc-ads-list': '<li>Nhiều BM / Ad Account độc lập</li><li>Nuôi tài khoản quảng cáo an toàn</li><li>Test creative từ nhiều account</li><li>Tránh share blacklist giữa các account</li>',
+        'uc-agency-title': 'Agency &amp; Doanh nghiệp',
+        'uc-agency-desc': 'Chia sẻ profile cho từng thành viên với quyền riêng. Quản lý nhiều khách hàng trong một nền tảng.',
+        'uc-agency-list': '<li>Phân quyền: Admin, Member, Viewer</li><li>Nhóm profile theo khách hàng / dự án</li><li>Nhật ký hành động từng thành viên</li><li>Chuyển nhượng profile giữa thành viên</li>',
+        'uc-game-desc': 'Chơi game kiếm tiền, farming token từ nhiều tài khoản riêng biệt với danh tính số khác nhau.',
+        'uc-game-list': '<li>Farm nhiều tài khoản game song song</li><li>Tham gia event / giftcode từ nhiều acc</li><li>Tự động hóa task game lặp lại qua RPA</li><li>Quản lý inventory nhiều nhân vật</li>',
+        'uc-seo-desc': 'Kiểm tra SERP từ nhiều vị trí địa lý, theo dõi thứ hạng từ khóa và bypass Google personalization.',
+        'uc-seo-list': '<li>Kiểm tra SERP từ 50+ quốc gia</li><li>Track keyword ranking đa vùng địa lý</li><li>Bypass Google personalization</li><li>Auto screenshot &amp; export SERP data</li>',
+        'uc-cta': 'Dùng thử miễn phí →',
+        'fp-tag': 'Anti-Detect Technology', 'fp-h2': 'Fingerprint Không Thể Phân Biệt Được',
+        'fp-desc': 'Công nghệ giả lập fingerprint tiên tiến tạo ra các profile browser hoàn toàn độc lập, không thể liên kết với nhau dưới bất kỳ hình thức nào.',
+        'sec-tag': 'Bảo mật',
+        'sec-h2': 'Dẫn đầu về Bảo mật<br>Dữ liệu &amp; Trình duyệt',
+        'sec-p': 'Bước tiến bảo mật của LadyLogin — bảo vệ bạn từ nhiều lớp',
+        'sec-1-h3': 'Quyền hồ sơ chính xác',
+        'sec-1-p': 'Kiểm soát quyền truy cập hơn bao giờ hết. LadyLogin đảm bảo các quyền dành riêng cho từng người dùng: hạn chế sử dụng trái phép, nhắc nhở đăng nhập bất thường, áp dụng 2FA, theo dõi nhật ký hành động — bảo mật phù hợp khi cộng tác nhóm.',
+        'sec-2-h3': 'Truyền &amp; lưu trữ mã hóa',
+        'sec-2-p': 'Sử dụng mã hóa đầu cuối nâng cao để bảo vệ thông tin đăng nhập, hoạt động duyệt web và dữ liệu nhạy cảm. Tất cả dữ liệu chỉ lưu trên thiết bị cục bộ của bạn — nếu không được phép, không có gì được đồng bộ ra ngoài.',
+        'sec-3-h3': 'Bảo vệ Extension',
+        'sec-3-p': 'Tất cả extension trong LadyLogin đều từ thư viện chính thức và sẽ không được cập nhật tự động. Điều này giúp tránh cài đặt phần mềm độc hại hoặc các lỗ hổng bảo mật ẩn trong các bản cập nhật không kiểm soát.',
+        'sec-4-h3': 'Chương trình Bug Bounty',
+        'sec-4-p': 'Chúng tôi hoan nghênh các nhà nghiên cứu bảo mật (white hats) báo cáo lỗ hổng của LadyLogin để giúp cải thiện tính bảo mật. Mọi báo cáo hợp lệ đều được ghi nhận và khen thưởng xứng đáng.',
+        'faq-eyebrow': 'FAQ', 'faq-h2': 'Câu hỏi thường gặp',
+        'faq-1-q': 'LadyLogin có hợp pháp không?',
+        'faq-1-a': '<p>Có. LadyLogin là công cụ bảo vệ quyền riêng tư hợp pháp, tương tự như VPN hay proxy. Việc sử dụng phụ thuộc vào mục đích của người dùng và điều khoản của từng nền tảng.</p>',
+        'faq-2-q': 'Tôi có thể chuyển dữ liệu từ hệ thống cũ không?',
+        'faq-2-a': '<p>Có. Đội ngũ hỗ trợ sẽ migration theo checklist chuẩn, đảm bảo downtime tối thiểu. Hỗ trợ import từ Multilogin, GoLogin, AdsPower và các tool phổ biến.</p>',
+        'faq-3-q': 'Onboarding mất bao lâu?',
+        'faq-3-a': '<p>Phần lớn người dùng hoàn thành setup trong dưới 10 phút. Tài liệu hướng dẫn chi tiết và video tutorial sẵn có. Team hỗ trợ hỗ trợ 1:1 nếu cần.</p>',
+        'faq-4-q': 'Có thể mở rộng cho nhiều team không?',
+        'faq-4-a': '<p>Hoàn toàn có thể. Bạn tạo nhiều workspace, phân quyền role (Admin, Member, Viewer) và theo dõi hoạt động từng team riêng biệt.</p>',
+        'faq-5-q': 'Thanh toán bằng hình thức nào?',
+        'faq-5-a': '<p>Chấp nhận chuyển khoản ngân hàng, MoMo, ZaloPay, thẻ quốc tế Visa/Mastercard và USDT. Xuất hóa đơn VAT theo yêu cầu.</p>',
+        'cta-h2': 'Sẵn sàng tăng trưởng không giới hạn?',
+        'cta-p': 'Tham gia cùng 50,000+ người dùng đang dùng LadyLogin để quản lý và scale tài khoản hiệu quả.',
+        'cta-btn-1': 'Bắt đầu miễn phí ngay', 'cta-btn-2': 'Liên hệ Tư vấn →',
+        'dl-eyebrow': 'Tải xuống', 'dl-h2': 'Bắt đầu trong vài phút',
+        'dl-p': 'Cài đặt nhanh trên Windows hoặc macOS. Không cần cấu hình phức tạp — mở lên là dùng được ngay.',
+        'dl-win-btn': 'Tải về', 'dl-win-req': 'Windows 10/11 trở lên',
+        'dl-mac-btn': 'Tải về', 'dl-mac-req': 'macOS 12 Monterey trở lên',
+        'dl-web-meta': 'Không cần cài đặt · Luôn cập nhật',
+        'dl-web-btn': 'Mở trên trình duyệt →', 'dl-web-req': 'Chrome, Edge, Firefox mới nhất',
+        'dl-note-1': '✓ Miễn phí cài đặt', 'dl-note-2': '✓ Không cần thẻ tín dụng',
+        'dl-note-3': '✓ Dùng thử 7 ngày', 'dl-note-4': '✓ Cập nhật tự động',
+        'footer-brand-p': 'Nền tảng anti-detect browser hàng đầu Việt Nam. Phục vụ hơn 50,000 người dùng trong eCommerce, MMO, affiliate và crypto.',
+        'footer-col-1-h4': 'Sản phẩm', 'footer-col-2-h4': 'Tài nguyên', 'footer-col-3-h4': 'Hỗ trợ',
+        'footer-trust-label': 'Phương thức thanh toán',
+        'footer-bottom': '© 2025 LadyLogin. Bảo lưu mọi quyền.',
+        'footer-legal-1': 'Chính sách bảo mật', 'footer-legal-2': 'Điều khoản sử dụng',
+        'footer-designed': 'Thiết kế tại Việt Nam 🇻🇳',
+      },
+      en: {
+        'announce-badge': 'New',
+        'announce-text': 'LadyLogin 3.0 launched — Android profile and smart proxy rotation support.',
+        'announce-link': 'Learn more →',
+        'nav-features': 'Features', 'nav-solutions': 'Solutions', 'nav-resources': 'Resources', 'nav-about': 'About', 'nav-guide': 'Guide', 'nav-pricing': 'Pricing',
+        'feat-multi-account': 'Multi-Account Management', 'feat-multi-window': 'Multi-Window Sync', 'feat-rpa': 'RPA Automation', 'feat-api': 'Local API Integration', 'feat-bulk': 'Bulk Profile Operations', 'feat-team': 'Permissions &amp; Teamwork', 'feat-cloud': 'Cloud Phone Ecosystem', 'feat-security': 'Comprehensive Account Security',
+        'sol-tag': 'Solutions', 'sol-sub': 'Trusted partner in every industry', 'sol-ecommerce': 'eCommerce', 'sol-affiliate': 'Affiliate', 'sol-social': 'Social Media', 'sol-crypto': 'Crypto', 'sol-scraping': 'Web Scraping', 'sol-ads': 'Advertising', 'sol-agency': 'Agency', 'sol-game': 'Game &amp; Airdrop', 'sol-seo': 'SEO &amp; SERP',
+        'res-blog': 'Blog &amp; Knowledge', 'res-partner': 'Partner Program', 'res-community': 'User Community', 'res-support': 'Support Center', 'res-video': 'Tutorial Videos', 'res-brand': 'Brand Story',
+        'btn-login': 'Login', 'btn-start': 'Get Started Free',
+        'hero-badge': 'Anti-Detect Browser #1 in Vietnam',
+        'hero-h1': 'Multi-Account Management<br><span class="gradient-text">Secure · Automated · Efficient</span>',
+        'hero-desc': 'Thousands of Facebook, TikTok, Shopee, Amazon accounts — each profile with an independent fingerprint. No detection, no bans, unlimited growth.',
+        'hero-cta-1': 'Try Free for 7 Days', 'hero-cta-2': 'Watch demo',
+        'trust-1': 'No credit card required', 'trust-2': 'Onboard in under 10 minutes',
+        'trust-3': '24/7 Support', 'trust-4': '50,000+ users',
+        'fc-sub-1': 'All profiles clean', 'fc-sub-2': 'Completed today',
+        'kpi-auto': 'Auto/day', 'kpi-stable': 'Stable', 'kpi-trend-1': '+12 today',
+        'brands-label': 'Trusted by leading growth teams',
+        'partner-label': 'Compatible with every platform you use',
+        'stat-1': 'Active Users', 'stat-2': 'Profiles Created',
+        'stat-3': 'Guaranteed Uptime', 'stat-4': 'Countries &amp; Regions',
+        'feat-eyebrow': 'Features',
+        'feat-h2': 'Everything you need for<br>professional multi-account management',
+        'feat-p': 'Designed for individuals and large teams — from quick setup to full automation.',
+        'feat-1-p': 'Create and manage hundreds of independent profiles with unique fingerprints. Organize by folder, tag, and workspace.',
+        'feat-2-p': 'Spoof Canvas, WebGL, Audio, Font, Timezone, and dozens of other fingerprint parameters. No platform can detect you.',
+        'feat-3-p': 'Built-in HTTP, SOCKS5, and Residential proxy support. Automatic rotation and periodic health checks included.',
+        'feat-4-p': 'Granular role-based permissions. Members only see and interact with their assigned profiles — completely secure.',
+        'feat-5-p': 'Run batch tasks, schedule automation, and connect via REST API. Easy integration with Puppeteer and Playwright.',
+        'feat-6-p': 'Intuitive dashboard — monitor profile status, task history, success rate, and get alerts on issues.',
+        'how-eyebrow': 'How it works', 'how-h2': 'From setup to running — in under 10 minutes',
+        'how-desc': 'No technical knowledge needed. Intuitive interface, comprehensive documentation, and a support team ready 24/7.',
+        'step-1-h4': 'Create workspace &amp; add members',
+        'step-1-p': 'Register an account, create a workspace, and assign team permissions in just a few clicks.',
+        'step-2-h4': 'Set up profile from template',
+        'step-2-p': 'Choose an existing template or customize fingerprint, attach proxy, and save configuration.',
+        'step-3-h4': 'Run tasks &amp; monitor realtime',
+        'step-3-p': 'Activate automation, track progress via dashboard, and receive detailed reports.',
+        'test-1-q': '"LadyLogin helps our team manage 500+ Facebook Ads accounts without fear of detection. Since using it, the account ban rate has dropped to nearly 0."',
+        'test-1-role': 'Growth Lead at NovaAds',
+        'test-2-q': '"LadyLogin\'s Automation API integrates with our pipeline very smoothly. It saves dozens of hours of manual operations every week."',
+        'test-2-role': 'CTO at ScaleHub',
+        'price-eyebrow': 'Pricing', 'price-h2': 'Choose the plan that fits your scale',
+        'price-p': 'No hidden fees. Upgrade or downgrade anytime.',
+        'price-badge': 'Most Popular',
+        'price-starter-p': 'For individuals and small teams just getting started.',
+        'price-starter-btn': 'Get Started Free',
+        'price-period-1': '/month', 'price-period-2': '/month',
+        'price-growth-p': 'For teams scaling and needing automation.',
+        'price-growth-btn': 'Try 7 Days Free',
+        'price-scale-p': 'For enterprises with unlimited needs.',
+        'price-scale-amount': 'Contact Us', 'price-scale-btn': 'Contact Sales',
+        'uc-tag': 'Solutions',
+        'uc-h2': 'Trusted partner<br>in every industry',
+        'uc-desc': 'From MMO to eCommerce, from individuals to agencies — LadyLogin serves every need.',
+        'uc-ec-title': 'eCommerce',
+        'uc-ec-desc': 'Manage hundreds of Shopee, Lazada, TikTok Shop, Amazon stores simultaneously. Each shop with its own IP &amp; fingerprint.',
+        'uc-ec-list': '<li>Multiple stores, one management hub</li><li>Automate product listings &amp; orders</li><li>Proxy integrated by region</li><li>Complete cookie isolation between accounts</li>',
+        'uc-aff-title': 'Affiliate Marketing',
+        'uc-aff-desc': 'Run multiple affiliate campaigns in parallel with independent accounts. Track performance by channel accurately.',
+        'uc-aff-list': '<li>Multiple separate affiliate accounts</li><li>Tracking links isolated per profile</li><li>Multi-platform: Shopee, TikTok, Meta</li><li>A/B test landing pages from multiple IPs</li>',
+        'uc-soc-title': 'Social Media Marketing',
+        'uc-soc-desc': 'Manage hundreds of Facebook pages, Instagram, TikTok &amp; YouTube channels. Build large-scale networks.',
+        'uc-soc-list': '<li>500+ FB/IG/TikTok accounts in one place</li><li>Schedule &amp; auto-post via RPA</li><li>Safe account warming from scratch</li><li>Permission management by team group</li>',
+        'uc-crypto-desc': 'Join airdrops, testnets, and DeFi with hundreds of separate wallets. No Sybil attack detection worries.',
+        'uc-crypto-list': '<li>200+ independent crypto wallet profiles</li><li>Anti-Sybil detection on all chains</li><li>Automate airdrop tasks via RPA</li><li>Locally encrypted seed phrase storage</li>',
+        'uc-scraping-desc': 'Collect large-scale data without getting blocked. Each request from a different IP and fingerprint.',
+        'uc-scraping-list': '<li>Rotating proxy + auto fingerprint</li><li>Bypass anti-bot: Cloudflare, DataDome</li><li>Puppeteer API for scraping automation</li><li>Bulk collect prices, products, reviews</li>',
+        'uc-ads-title': 'Digital Advertising',
+        'uc-ads-desc': 'Run multiple Facebook Ads, Google Ads, TikTok Ads accounts in parallel. Test creatives and optimize ROAS.',
+        'uc-ads-list': '<li>Multiple independent BM / Ad Accounts</li><li>Safe ad account warming</li><li>Test creatives from multiple accounts</li><li>Avoid shared blacklists between accounts</li>',
+        'uc-agency-title': 'Agency &amp; Enterprise',
+        'uc-agency-desc': 'Share profiles with each member with separate permissions. Manage multiple clients on one platform.',
+        'uc-agency-list': '<li>Roles: Admin, Member, Viewer</li><li>Group profiles by client / project</li><li>Action log per team member</li><li>Transfer profiles between members</li>',
+        'uc-game-desc': 'Play games for income, farm tokens from multiple separate accounts with different digital identities.',
+        'uc-game-list': '<li>Farm multiple game accounts in parallel</li><li>Join events / giftcodes from multiple accs</li><li>Automate repetitive game tasks via RPA</li><li>Manage inventory across multiple characters</li>',
+        'uc-seo-desc': 'Check SERP from multiple geo-locations, track keyword rankings, and bypass Google personalization.',
+        'uc-seo-list': '<li>Check SERP from 50+ countries</li><li>Track keyword ranking across regions</li><li>Bypass Google personalization</li><li>Auto screenshot &amp; export SERP data</li>',
+        'uc-cta': 'Try for free →',
+        'fp-tag': 'Anti-Detect Technology', 'fp-h2': 'Indistinguishable Fingerprints',
+        'fp-desc': 'Advanced fingerprint spoofing technology creates completely independent browser profiles that cannot be linked to each other in any way.',
+        'sec-tag': 'Security',
+        'sec-h2': 'Leading in Data &amp;<br>Browser Security',
+        'sec-p': 'LadyLogin\'s security advances — protecting you from multiple layers',
+        'sec-1-h3': 'Precise Profile Permissions',
+        'sec-1-p': 'Access control like never before. LadyLogin ensures permissions are specific to each user: restricts unauthorized use, alerts on unusual logins, enforces 2FA, and tracks action logs — security tailored for team collaboration.',
+        'sec-2-h3': 'Encrypted Transmission &amp; Storage',
+        'sec-2-p': 'Advanced end-to-end encryption protects login credentials, browsing activity, and sensitive data. All data is stored only on your local device — nothing syncs out without authorization.',
+        'sec-3-h3': 'Extension Protection',
+        'sec-3-p': 'All extensions in LadyLogin come from official libraries and will not be auto-updated. This prevents malicious software or hidden vulnerabilities in uncontrolled updates.',
+        'sec-4-h3': 'Bug Bounty Program',
+        'sec-4-p': 'We welcome security researchers (white hats) to report LadyLogin vulnerabilities to help improve security. All valid reports are acknowledged and rewarded appropriately.',
+        'faq-eyebrow': 'FAQ', 'faq-h2': 'Frequently Asked Questions',
+        'faq-1-q': 'Is LadyLogin legal?',
+        'faq-1-a': '<p>Yes. LadyLogin is a legitimate privacy protection tool, similar to VPN or proxy. Usage depends on the user\'s purpose and each platform\'s terms of service.</p>',
+        'faq-2-q': 'Can I transfer data from an old system?',
+        'faq-2-a': '<p>Yes. Our support team will handle migration with a standard checklist, ensuring minimal downtime. Supports import from Multilogin, GoLogin, AdsPower, and other popular tools.</p>',
+        'faq-3-q': 'How long does onboarding take?',
+        'faq-3-a': '<p>Most users complete setup in under 10 minutes. Detailed documentation and video tutorials are available. Support team provides 1:1 assistance if needed.</p>',
+        'faq-4-q': 'Can it scale for multiple teams?',
+        'faq-4-a': '<p>Absolutely. You can create multiple workspaces, assign roles (Admin, Member, Viewer), and monitor each team\'s activity independently.</p>',
+        'faq-5-q': 'What payment methods are accepted?',
+        'faq-5-a': '<p>We accept bank transfer, MoMo, ZaloPay, international Visa/Mastercard, and USDT. VAT invoices available upon request.</p>',
+        'cta-h2': 'Ready for unlimited growth?',
+        'cta-p': 'Join 50,000+ users already using LadyLogin to manage and scale their accounts effectively.',
+        'cta-btn-1': 'Get Started Free Now', 'cta-btn-2': 'Contact Sales →',
+        'dl-eyebrow': 'Download', 'dl-h2': 'Get started in minutes',
+        'dl-p': 'Quick install on Windows or macOS. No complex configuration needed — open it and you\'re ready to go.',
+        'dl-win-btn': 'Download', 'dl-win-req': 'Windows 10/11 or later',
+        'dl-mac-btn': 'Download', 'dl-mac-req': 'macOS 12 Monterey or later',
+        'dl-web-meta': 'No installation · Always up-to-date',
+        'dl-web-btn': 'Open in browser →', 'dl-web-req': 'Latest Chrome, Edge, Firefox',
+        'dl-note-1': '✓ Free to install', 'dl-note-2': '✓ No credit card required',
+        'dl-note-3': '✓ 7-day trial', 'dl-note-4': '✓ Auto updates',
+        'footer-brand-p': 'Vietnam\'s leading anti-detect browser platform. Serving over 50,000 users in eCommerce, MMO, affiliate, and crypto.',
+        'footer-col-1-h4': 'Product', 'footer-col-2-h4': 'Resources', 'footer-col-3-h4': 'Support',
+        'footer-trust-label': 'Payment Methods',
+        'footer-bottom': '© 2025 LadyLogin. All rights reserved.',
+        'footer-legal-1': 'Privacy Policy', 'footer-legal-2': 'Terms of Service',
+        'footer-designed': 'Designed in Vietnam 🇻🇳',
+      }
+    };
+
+    let currentLang = 'vi';
+
+    function applyLang(lang) {
+      document.documentElement.lang = lang;
+      const btn = document.getElementById('langLabel');
+      if (btn) btn.textContent = lang === 'vi' ? 'EN' : 'VI';
+      const t = translations[lang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const v = t[el.dataset.i18n];
+        if (v !== undefined) el.innerHTML = v;
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const v = t[el.dataset.i18nHtml];
+        if (v !== undefined) el.innerHTML = v;
+      });
+    }
+
+    function toggleLang() {
+      currentLang = currentLang === 'vi' ? 'en' : 'vi';
+      applyLang(currentLang);
+    }
   </script>
 </body>
 </html>
