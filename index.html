@@ -1109,35 +1109,50 @@
 
         <!-- Sản phẩm -->
         <div class="footer-col">
-          <h4 data-i18n="footer-col-1-h4">Sản phẩm</h4>
-          <a href="#features">Tính năng</a>
-          <a href="banggia.html">Bảng giá</a>
-          <a href="#changelog">Changelog</a>
-          <a href="#roadmap">Roadmap</a>
-          <a href="#download-windows">Tải về Windows</a>
-          <a href="#download-macos">Tải về macOS</a>
+          <h4>
+            <span data-i18n="footer-col-1-h4">Sản phẩm</span>
+            <svg class="footer-col-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </h4>
+          <div class="footer-col-links">
+            <a href="#features">Tính năng</a>
+            <a href="banggia.html">Bảng giá</a>
+            <a href="#changelog">Changelog</a>
+            <a href="#roadmap">Roadmap</a>
+            <a href="#download-windows">Tải về Windows</a>
+            <a href="#download-macos">Tải về macOS</a>
+          </div>
         </div>
 
         <!-- Tài nguyên -->
         <div class="footer-col">
-          <h4 data-i18n="footer-col-2-h4">Tài nguyên</h4>
-          <a href="#">Tài liệu hướng dẫn</a>
-          <a href="#">API Reference</a>
-          <a href="blog.html">Blog</a>
-          <a href="#">Video Tutorial</a>
-          <a href="#">Status Page</a>
-          <a href="#">Affiliate Program</a>
+          <h4>
+            <span data-i18n="footer-col-2-h4">Tài nguyên</span>
+            <svg class="footer-col-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </h4>
+          <div class="footer-col-links">
+            <a href="#">Tài liệu hướng dẫn</a>
+            <a href="#">API Reference</a>
+            <a href="blog.html">Blog</a>
+            <a href="#">Video Tutorial</a>
+            <a href="#">Status Page</a>
+            <a href="#">Affiliate Program</a>
+          </div>
         </div>
 
         <!-- Hỗ trợ -->
         <div class="footer-col">
-          <h4 data-i18n="footer-col-3-h4">Hỗ trợ</h4>
-          <a href="#">Telegram Channel</a>
-          <a href="#">Zalo Official Account</a>
-          <a href="#">Facebook Group</a>
-          <a href="#">Ticket hỗ trợ</a>
-          <a href="#">Về chúng tôi</a>
-          <a href="#">Tuyển dụng</a>
+          <h4>
+            <span data-i18n="footer-col-3-h4">Hỗ trợ</span>
+            <svg class="footer-col-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </h4>
+          <div class="footer-col-links">
+            <a href="#">Telegram Channel</a>
+            <a href="#">Zalo Official Account</a>
+            <a href="#">Facebook Group</a>
+            <a href="#">Ticket hỗ trợ</a>
+            <a href="#">Về chúng tôi</a>
+            <a href="#">Tuyển dụng</a>
+          </div>
         </div>
 
       </div>
@@ -1493,18 +1508,20 @@
         outer.appendChild(prev);
         outer.appendChild(next);
 
-        const update = () => {
-          const atStart = el.scrollLeft < 8;
-          const atEnd   = el.scrollLeft >= el.scrollWidth - el.clientWidth - 8;
-          atStart ? prev.setAttribute("data-hidden","1") : prev.removeAttribute("data-hidden");
-          atEnd   ? next.setAttribute("data-hidden","1") : next.removeAttribute("data-hidden");
-        };
-
-        update();
-        el.addEventListener("scroll", update, { passive: true });
-
-        prev.addEventListener("click", () => el.scrollBy({ left: -el.clientWidth, behavior: "smooth" }));
-        next.addEventListener("click", () => el.scrollBy({ left:  el.clientWidth, behavior: "smooth" }));
+        prev.addEventListener("click", () => {
+          if (el.scrollLeft < 8) {
+            el.scrollTo({ left: el.scrollWidth, behavior: "smooth" });
+          } else {
+            el.scrollBy({ left: -el.clientWidth, behavior: "smooth" });
+          }
+        });
+        next.addEventListener("click", () => {
+          if (el.scrollLeft >= el.scrollWidth - el.clientWidth - 8) {
+            el.scrollTo({ left: 0, behavior: "smooth" });
+          } else {
+            el.scrollBy({ left: el.clientWidth, behavior: "smooth" });
+          }
+        });
       });
     }
 
@@ -1777,6 +1794,15 @@
       currentLang = currentLang === 'vi' ? 'en' : 'vi';
       applyLang(currentLang);
     }
+
+    // Footer accordion — chỉ hoạt động trên mobile (≤768px)
+    document.querySelectorAll('.footer-col h4').forEach(h4 => {
+      h4.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          h4.closest('.footer-col').classList.toggle('open');
+        }
+      });
+    });
   </script>
 </body>
 </html>
