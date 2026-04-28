@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chương Trình Giới Thiệu – Kiếm Hoa Hồng 30% | LadyLogin</title>
+    <meta name="description"
+        content="Mời bạn bè đăng ký LadyLogin, nhận hoa hồng lên đến 30% mỗi giao dịch. Thanh toán đúng hạn, hệ thống minh bạch, không giới hạn thu nhập.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/gioithieu.css">
+</head>
+
+<body>
+
+    <!-- ── HERO ── -->
+    <section class="ref-hero">
+        <div class="ref-hero-inner">
+            <div class="ref-hero-badge">
+                <span></span> Chương trình Giới thiệu đang hoạt động
+            </div>
+            <h1>Tham gia quảng cáo<br>và <span class="highlight">kiếm thu nhập</span></h1>
+            <p>Mời bạn bè đăng ký trả phí thành công, bạn có thể nhận ngay hoa hồng lên đến <strong
+                    style="color:#7c3aed">30%</strong> trên mỗi giao dịch — không giới hạn số lượng.</p>
+            <div class="ref-hero-cta">
+                <a href="https://app.ladylogin.com/referral" class="btn-red">Bắt đầu giới thiệu ngay</a>
+                <a href="#how-it-works" class="btn-outline">Tìm hiểu thêm</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── CALCULATOR ── -->
+    <section class="calc-section">
+        <h2 class="section-title">Ước tính thu nhập của bạn</h2>
+        <p class="section-sub">Điều chỉnh số lượng người mời và gói họ mua để xem thu nhập dự kiến</p>
+
+        <div class="calc-card">
+            <div class="calc-top">
+                <div>
+                    <div class="calc-earn-label">Dự kiến sẽ nhận được</div>
+                    <div class="calc-earn-value" id="calcEarn">1.200.000₫</div>
+                    <div class="calc-earn-note">Số tiền chỉ mang tính tham khảo và tùy thuộc vào số liệu giới thiệu của
+                        người dùng.</div>
+                </div>
+                <div class="calc-controls">
+                    <div class="calc-control">
+                        <label>Nếu bạn mời <span class="calc-range-val" id="friendCount">10</span> bạn bè mua</label>
+                        <input type="range" min="1" max="100" value="10" id="friendSlider" oninput="calcUpdate()">
+                    </div>
+                    <div class="calc-control">
+                        <label>Gói thanh toán</label>
+                        <select id="planSelect" onchange="calcUpdate()">
+                            <option value="200000">Gói Tháng – 200.000₫/tháng</option>
+                            <option value="540000" selected>Gói Quý – 540.000₫/quý</option>
+                            <option value="1920000">Gói Năm – 1.920.000₫/năm</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="calc-bottom">
+                <div class="calc-stat">
+                    <div class="calc-stat-val" id="statRate">30%</div>
+                    <div class="calc-stat-lbl">Tỷ lệ hoa hồng</div>
+                </div>
+                <div class="calc-stat">
+                    <div class="calc-stat-val" id="statFriends">10</div>
+                    <div class="calc-stat-lbl">Bạn bè giới thiệu</div>
+                </div>
+                <div class="calc-stat">
+                    <div class="calc-stat-val" id="statPerFriend">162.000₫</div>
+                    <div class="calc-stat-lbl">Mỗi bạn bè</div>
+                </div>
+                <div class="calc-stat">
+                    <div class="calc-stat-val" id="statTotal">1.620.000₫</div>
+                    <div class="calc-stat-lbl">Tổng hoa hồng</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── HOW IT WORKS ── -->
+    <section class="steps-section" id="how-it-works">
+        <h2 class="section-title">Tham gia Chương trình Giới thiệu LadyLogin</h2>
+        <p class="section-sub">Chỉ 4 bước đơn giản để bắt đầu kiếm hoa hồng</p>
+
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-num">1</div>
+                <div class="step-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <rect x="3" y="11" width="18" height="11" rx="2" stroke="#E53935" stroke-width="1.7"
+                            fill="none" />
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="#E53935" stroke-width="1.7" stroke-linecap="round" />
+                        <circle cx="12" cy="16" r="1.5" fill="#E53935" />
+                        <path d="M12 17.5v2" stroke="#E53935" stroke-width="1.5" stroke-linecap="round" opacity="0.6" />
+                    </svg></div>
+                <h3>Đăng nhập tài khoản LadyLogin</h3>
+                <p>Truy cập tài khoản của bạn tại app.ladylogin.com và vào mục Chương trình Giới thiệu.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">2</div>
+                <div class="step-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" stroke="#E53935"
+                            stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" stroke="#E53935"
+                            stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.6" />
+                    </svg></div>
+                <h3>Sao chép mã hoặc link giới thiệu</h3>
+                <p>Mỗi tài khoản có một link/mã giới thiệu độc nhất. Sao chép và chia sẻ với bạn bè.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">3</div>
+                <div class="step-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <circle cx="9" cy="7" r="3.5" stroke="#E53935" stroke-width="1.7" fill="none" />
+                        <circle cx="17" cy="8" r="2.5" stroke="#E53935" stroke-width="1.5" fill="none" opacity="0.6" />
+                        <path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#E53935" stroke-width="1.7"
+                            stroke-linecap="round" fill="none" />
+                        <path d="M17 13c2 0 4 1.5 4 4" stroke="#E53935" stroke-width="1.5" stroke-linecap="round"
+                            fill="none" opacity="0.5" />
+                    </svg></div>
+                <h3>Mời bạn bè đăng ký LadyLogin</h3>
+                <p>Gửi link qua mạng xã hội, nhóm chat, blog hoặc để bạn bè nhập mã khi đăng ký.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">4</div>
+                <div class="step-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="9" stroke="#E53935" stroke-width="1.7" fill="none" />
+                        <path d="M12 6v2M12 16v2" stroke="#E53935" stroke-width="1.6" stroke-linecap="round"
+                            opacity="0.5" />
+                        <path
+                            d="M9 9.5c0-1.1.9-2 2.5-2h1c1.4 0 2.5.9 2.5 2s-.9 1.8-2.5 2h-1C10 11.5 9 12.4 9 13.5s1 2.1 2.5 2.1h1c1.6 0 2.5-.9 2.5-2"
+                            stroke="#E53935" stroke-width="1.6" stroke-linecap="round" />
+                    </svg></div>
+                <h3>Nhận hoa hồng ngay khi họ mua gói</h3>
+                <p>Bạn bè đăng ký thành công gói trả phí, hoa hồng sẽ được ghi nhận và chuyển về tài khoản bạn.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── COMMISSION TABLE ── -->
+    <section class="commission-section">
+        <h2 class="section-title">Bảng hoa hồng chi tiết</h2>
+        <p class="section-sub">Tỷ lệ hoa hồng theo gói đăng ký của người được mời</p>
+
+        <div class="commission-table-wrap">
+            <table class="commission-table">
+                <thead>
+                    <tr>
+                        <th>Gói đăng ký</th>
+                        <th>Giá gói</th>
+                        <th>Tỷ lệ HH</th>
+                        <th>Bạn nhận</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Gói Tháng – Professional</td>
+                        <td>200.000₫/tháng</td>
+                        <td><span class="comm-badge">20%</span></td>
+                        <td>40.000₫/tháng</td>
+                    </tr>
+                    <tr>
+                        <td>Gói Quý – Professional</td>
+                        <td>540.000₫/quý</td>
+                        <td><span class="comm-badge">25%</span></td>
+                        <td>135.000₫/quý</td>
+                    </tr>
+                    <tr>
+                        <td>Gói Năm – Professional</td>
+                        <td>1.920.000₫/năm</td>
+                        <td><span class="comm-badge best">30% <svg width="12" height="12" viewBox="0 0 12 12"
+                                    fill="none" style="vertical-align:-1px">
+                                    <path
+                                        d="M6 1C6 1 9 3.5 9 6.5a3 3 0 0 1-6 0c0-1 .5-2 1-2.5 0 1 .5 1.8 1.5 2C5 5 5 3 6 1Z"
+                                        fill="rgba(255,255,255,0.9)" />
+                                </svg></span></td>
+                        <td>576.000₫/năm</td>
+                    </tr>
+                    <tr>
+                        <td>Gói Tháng – Business</td>
+                        <td>1.240.000₫/tháng</td>
+                        <td><span class="comm-badge">20%</span></td>
+                        <td>248.000₫/tháng</td>
+                    </tr>   
+                    <tr>
+                        <td>Gói Quý – Business</td>
+                        <td>3.348.000₫/quý</td>
+                        <td><span class="comm-badge">25%</span></td>
+                        <td>837.000₫/quý</td>
+                    </tr>
+                    <tr>
+                        <td>Gói Năm – Business</td>
+                        <td>11.904.000₫/năm</td>
+                        <td><span class="comm-badge best">30% <svg width="12" height="12" viewBox="0 0 12 12"
+                                    fill="none" style="vertical-align:-1px">
+                                    <path
+                                        d="M6 1C6 1 9 3.5 9 6.5a3 3 0 0 1-6 0c0-1 .5-2 1-2.5 0 1 .5 1.8 1.5 2C5 5 5 3 6 1Z"
+                                        fill="rgba(255,255,255,0.9)" />
+                                </svg></span></td>
+                        <td>3.571.200₫/năm</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ── WHY JOIN ── -->
+    <section class="why-section">
+        <h2 class="section-title">Tại sao nên tham gia Chương trình Giới thiệu LadyLogin?</h2>
+        <p class="section-sub">Chúng tôi hỗ trợ bạn từng bước trên hành trình kiếm thu nhập</p>
+
+        <div class="why-grid">
+            <div class="why-card">
+                <div class="why-card-icon"><svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                        <path d="M13 3l2.5 5.5 5.5.8-4 4 .9 5.7L13 16.5l-4.9 2.5.9-5.7-4-4 5.5-.8Z" stroke="#E53935"
+                            stroke-width="1.6" stroke-linejoin="round" fill="none" />
+                        <path d="M9 22h8" stroke="#E53935" stroke-width="1.5" stroke-linecap="round" opacity="0.5" />
+                        <path d="M13 19v3" stroke="#E53935" stroke-width="1.5" stroke-linecap="round" opacity="0.4" />
+                    </svg></div>
+                <h3>Danh tiếng sản phẩm</h3>
+                <p>Hàng chục nghìn người dùng sử dụng LadyLogin mỗi ngày để bảo vệ tài khoản và phát triển kinh doanh.
+                    Sản phẩm dễ bán vì tự nó đã thuyết phục.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-card-icon"><svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                        <circle cx="13" cy="13" r="9" stroke="#E53935" stroke-width="1.6" fill="none" />
+                        <path d="M4 13h18M13 4c-3 3-4.5 5.5-4.5 9s1.5 6 4.5 9M13 4c3 3 4.5 5.5 4.5 9s-1.5 6-4.5 9"
+                            stroke="#E53935" stroke-width="1.4" stroke-linecap="round" opacity="0.65" />
+                    </svg></div>
+                <h3>Hiệu quả trên mọi nền tảng</h3>
+                <p>LadyLogin hoạt động với Facebook, TikTok, Shopee, Lazada, Amazon, crypto và hàng chục nền tảng khác —
+                    thị trường tiềm năng rất rộng.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-card-icon"><svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                        <rect x="3" y="7" width="20" height="13" rx="2.5" stroke="#E53935" stroke-width="1.6"
+                            fill="none" />
+                        <path d="M3 11h20" stroke="#E53935" stroke-width="1.4" opacity="0.5" />
+                        <circle cx="13" cy="16" r="2.5" stroke="#E53935" stroke-width="1.4" fill="none" />
+                        <path d="M7 16h1M18 16h1" stroke="#E53935" stroke-width="1.4" stroke-linecap="round"
+                            opacity="0.4" />
+                    </svg></div>
+                <h3>Mức giá hợp lý – dễ thuyết phục</h3>
+                <p>Gói trả phí bắt đầu từ 200.000₫/tháng. Giá thấp giúp tỷ lệ chuyển đổi cao hơn, hoa hồng của bạn cũng
+                    tích lũy nhanh hơn.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-card-icon"><svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                        <path d="M14 3L5 15h8l-1 8 9-12h-8l1-8z" stroke="#E53935" stroke-width="1.6"
+                            stroke-linejoin="round" fill="none" />
+                        <path d="M14 3L5 15h8" stroke="#E53935" stroke-width="1.6" stroke-linejoin="round"
+                            fill="rgba(229,57,53,0.08)" />
+                    </svg></div>
+                <h3>Tính năng vượt trội – người dùng yêu thích</h3>
+                <p>Anti-detect browser, đồng bộ đa cửa sổ, RPA tự động hóa — những tính năng mà người dùng không muốn
+                    thiếu sau khi đã dùng thử.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-card-icon"><svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                        <path d="M4 6h10a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H9l-4 3v-3H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z"
+                            stroke="#E53935" stroke-width="1.6" fill="none" stroke-linejoin="round" />
+                        <path d="M16 10h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-1v2l-3-2h-2a2 2 0 0 1-2-2" stroke="#E53935"
+                            stroke-width="1.4" fill="none" stroke-linejoin="round" opacity="0.55" />
+                        <path d="M7 11h6M7 9h4" stroke="#E53935" stroke-width="1.3" stroke-linecap="round"
+                            opacity="0.5" />
+                    </svg></div>
+                <h3>Hỗ trợ đa ngôn ngữ</h3>
+                <p>Giao diện tiếng Việt, tài liệu hỗ trợ đầy đủ. Bạn có thể giới thiệu cho cộng đồng người Việt trong
+                    nước và quốc tế.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-card-icon"><svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                        <rect x="3" y="16" width="4" height="7" rx="1" fill="#E53935" opacity="0.4" />
+                        <rect x="10" y="11" width="4" height="12" rx="1" fill="#E53935" opacity="0.7" />
+                        <rect x="17" y="6" width="4" height="17" rx="1" fill="#E53935" />
+                        <path d="M5 14l7-6 7-5" stroke="#E53935" stroke-width="1.4" stroke-linecap="round"
+                            stroke-linejoin="round" opacity="0.4" />
+                    </svg></div>
+                <h3>Hệ thống theo dõi minh bạch</h3>
+                <p>Dashboard real-time hiển thị số lượt click, đăng ký, mua hàng và hoa hồng tích lũy. Bạn kiểm soát
+                    hoàn toàn dữ liệu của mình.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── SUPPORT CARDS ── -->
+    <section class="support-section" style="background:#fff">
+        <h2 class="section-title">Chúng tôi hỗ trợ bạn từng bước</h2>
+        <p class="section-sub">Từ tài nguyên quảng cáo đến thanh toán hoa hồng — tất cả đều được hỗ trợ</p>
+
+        <div class="support-grid">
+            <div class="support-card">
+                <div class="support-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                        <circle cx="11" cy="12" r="7.5" stroke="#E53935" stroke-width="1.6" fill="none" />
+                        <path d="M11 8v4l3 2" stroke="#E53935" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M7 2.5l-3 2.5M15 2.5l3 2.5" stroke="#E53935" stroke-width="1.4" stroke-linecap="round"
+                            opacity="0.45" />
+                    </svg></div>
+                <div>
+                    <h3>Thanh toán đúng hạn</h3>
+                    <p>Bạn có thể nhận thanh toán qua chuyển khoản ngân hàng, ví điện tử (MoMo, ZaloPay) hoặc PayPal.
+                        Chúng tôi thực hiện thanh toán định kỳ hàng tháng để bạn nhận tiền nhanh hơn.</p>
+                </div>
+            </div>
+            <div class="support-card">
+                <div class="support-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                        <path d="M3 16L8 10l4 3 6-8" stroke="#E53935" stroke-width="1.7" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <circle cx="18" cy="5" r="2" fill="#E53935" opacity="0.8" />
+                        <path d="M3 19h16" stroke="#E53935" stroke-width="1.3" stroke-linecap="round" opacity="0.35" />
+                    </svg></div>
+                <div>
+                    <h3>Hệ thống theo dõi trực quan</h3>
+                    <p>Dashboard dễ sử dụng, hiển thị đầy đủ thống kê giới thiệu: click, đăng ký, giao dịch thành công
+                        và lịch sử hoa hồng theo từng kỳ.</p>
+                </div>
+            </div>
+            <div class="support-card">
+                <div class="support-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                        <rect x="2" y="5" width="12" height="9" rx="1.5" stroke="#E53935" stroke-width="1.6"
+                            fill="none" />
+                        <path d="M6 9h4M8 7v4" stroke="#E53935" stroke-width="1.3" stroke-linecap="round"
+                            opacity="0.6" />
+                        <path d="M14 9h1.5a3 3 0 0 1 3 3v1a2 2 0 0 1-2 2h-1l-1.5-3" stroke="#E53935" stroke-width="1.4"
+                            stroke-linecap="round" fill="none" opacity="0.55" />
+                        <circle cx="17.5" cy="15.5" r="1" fill="#E53935" opacity="0.7" />
+                    </svg></div>
+                <div>
+                    <h3>Tài nguyên sáng tạo sẵn sàng</h3>
+                    <p>Bộ banner, hình ảnh, video giới thiệu sản phẩm chất lượng cao được cung cấp miễn phí. Bạn chỉ cần
+                        đăng — chúng tôi lo phần nội dung.</p>
+                </div>
+            </div>
+            <div class="support-card">
+                <div class="support-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                        <path d="M3 5h10a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H8l-4 3v-3H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"
+                            stroke="#E53935" stroke-width="1.6" fill="none" stroke-linejoin="round" />
+                        <path d="M6 9h7M6 11.5h4" stroke="#E53935" stroke-width="1.3" stroke-linecap="round"
+                            opacity="0.55" />
+                        <path d="M15 9h2a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-.5v2l-2.5-2H12" stroke="#E53935"
+                            stroke-width="1.3" fill="none" stroke-linejoin="round" opacity="0.5" />
+                    </svg></div>
+                <div>
+                    <h3>Hỗ trợ 24/7 từ đội ngũ</h3>
+                    <p>Có câu hỏi về hoa hồng, kỹ thuật hay chiến lược quảng bá? Đội ngũ hỗ trợ LadyLogin luôn sẵn sàng
+                        qua chat trực tiếp và Telegram.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── FAQ ── -->
+    <section class="faq-section">
+        <h2 class="section-title">Câu hỏi thường gặp</h2>
+        <p class="section-sub">Giải đáp những thắc mắc phổ biến về Chương trình Giới thiệu</p>
+
+        <div class="faq-list">
+            <details class="faq-item">
+                <summary>Có giới hạn số lượng bạn bè có thể được mời không?</summary>
+                <div class="faq-body">Hoàn toàn không! Bạn có thể mời bao nhiêu người tùy thích. Càng nhiều người đăng
+                    ký trả phí thành công, hoa hồng của bạn càng lớn — không có giới hạn trên.</div>
+            </details>
+            <details class="faq-item">
+                <summary>Phí hoa hồng sẽ được ghi nhận khi nào?</summary>
+                <div class="faq-body">Hoa hồng được ghi nhận ngay khi người được mời của bạn thanh toán thành công gói
+                    trả phí đầu tiên. Thông thường trong vòng 24 giờ sau giao dịch, hoa hồng sẽ hiển thị trên dashboard
+                    của bạn.</div>
+            </details>
+            <details class="faq-item">
+                <summary>Làm cách nào để theo dõi các lượt giới thiệu?</summary>
+                <div class="faq-body">Đăng nhập vào <a href="https://app.ladylogin.com/referral"
+                        style="color:#7c3aed">app.ladylogin.com/referral</a> để xem toàn bộ thống kê: số lượt click
+                    link, số đăng ký, số giao dịch thành công và tổng hoa hồng tích lũy theo thời gian thực.</div>
+            </details>
+            <details class="faq-item">
+                <summary>Làm thế nào để rút tiền hoa hồng?</summary>
+                <div class="faq-body">Vào mục "Rút tiền" trong dashboard, chọn phương thức thanh toán (chuyển khoản ngân
+                    hàng, MoMo, ZaloPay hoặc PayPal) và nhập thông tin tài khoản. Yêu cầu rút tiền tối thiểu là
+                    100.000₫. Thời gian xử lý từ 1–3 ngày làm việc.</div>
+            </details>
+            <details class="faq-item">
+                <summary>Hoa hồng có được tính khi bạn bè gia hạn không?</summary>
+                <div class="faq-body">Có! Hoa hồng của bạn không chỉ tính cho lần mua đầu tiên mà còn áp dụng cho mỗi
+                    lần gia hạn gói của người bạn giới thiệu. Đây là nguồn thu nhập thụ động liên tục miễn là họ còn sử
+                    dụng LadyLogin.</div>
+            </details>
+            <details class="faq-item">
+                <summary>Tôi có thể giới thiệu LadyLogin cho khách hàng doanh nghiệp không?</summary>
+                <div class="faq-body">Hoàn toàn có thể! Khách hàng doanh nghiệp thường mua gói giá trị cao hơn
+                    (Business), điều này có nghĩa hoa hồng của bạn sẽ lớn hơn đáng kể. Liên hệ bộ phận hỗ trợ để nhận
+                    tài liệu giới thiệu dành riêng cho doanh nghiệp.</div>
+            </details>
+            <details class="faq-item">
+                <summary>Liên kết giới thiệu có hết hạn không?</summary>
+                <div class="faq-body">Không. Link giới thiệu của bạn không bao giờ hết hạn. Tuy nhiên, cookie theo dõi
+                    có hiệu lực trong 30 ngày kể từ lần click cuối cùng — vì vậy nếu người dùng click link của bạn và
+                    mua trong vòng 30 ngày, bạn vẫn nhận hoa hồng.</div>
+            </details>
+        </div>
+    </section>
+
+    <!-- ── BOTTOM CTA ── -->
+    <section class="ref-cta">
+        <h2>Tăng doanh thu với LadyLogin</h2>
+        <p>Bắt đầu chia sẻ ngay hôm nay và biến mạng lưới của bạn thành nguồn thu nhập thụ động bền vững.</p>
+        <div class="ref-cta-btns">
+            <a href="https://app.ladylogin.com/referral" class="btn-red">Bắt đầu giới thiệu</a>
+            <a href="banggia.html" class="btn-outline">Xem bảng giá</a>
+        </div>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+        <p>© 2024 LadyLogin. Tất cả quyền được bảo lưu.</p>
+    </footer>
+
+    <script>
+        // ── Calculator ──
+        const RATE = { month: 0.20, quarter: 0.25, year: 0.30 };
+        const PLAN_PERIOD = { 200000: 'month', 540000: 'quarter', 1920000: 'year' };
+
+        function fmt(n) {
+            return n.toLocaleString('vi-VN') + '₫';
+        }
+
+        function calcUpdate() {
+            const friends = parseInt(document.getElementById('friendSlider').value);
+            const planVal = parseInt(document.getElementById('planSelect').value);
+            const period = PLAN_PERIOD[planVal] || 'quarter';
+            const rate = RATE[period];
+            const perFriend = Math.round(planVal * rate);
+            const total = perFriend * friends;
+
+            document.getElementById('friendCount').textContent = friends;
+            document.getElementById('calcEarn').textContent = fmt(total);
+            document.getElementById('statRate').textContent = (rate * 100) + '%';
+            document.getElementById('statFriends').textContent = friends;
+            document.getElementById('statPerFriend').textContent = fmt(perFriend);
+            document.getElementById('statTotal').textContent = fmt(total);
+        }
+
+        // init
+        calcUpdate();
+
+        // ── Smooth scroll ──
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                const target = document.querySelector(a.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // ── Scroll progress bar ──
+        const bar = document.createElement('div');
+        bar.className = 'scroll-progress';
+        document.body.prepend(bar);
+        window.addEventListener('scroll', () => {
+            const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+            bar.style.width = Math.min(pct, 100) + '%';
+        });
+    </script>
+</body>
+
+</html>

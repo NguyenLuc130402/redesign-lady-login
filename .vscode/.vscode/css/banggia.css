@@ -14,40 +14,27 @@
   overflow: hidden;
   position: relative;
 }
-.pricing-hero::before {
-  content: '';
-  position: absolute;
-  inset: -60% -30%;
-  background: linear-gradient(
-    108deg,
-    transparent             32%,
-    rgba(124, 58, 237, .07) 40%,
-    rgba(99, 102, 241, .11) 50%,
-    rgba(59, 130, 246, .07) 60%,
-    transparent             68%
-  );
-  pointer-events: none;
-  z-index: 0;
-}
+
 .pricing-hero > * { position: relative; z-index: 1; }
 .pricing-eyebrow {
   display: inline-block;
-  font-size: 12px; font-weight: 700;
+  font-size: 20px; font-weight: 700;
   text-transform: uppercase; letter-spacing: .1em;
   color: var(--brand); margin-bottom: 14px;
 }
 .pricing-hero h1 {
   font-size: clamp(38px, 5.5vw, 68px);
-  font-weight: 800; line-height: 1.1;
+  font-weight: 800; line-height: 1.15;
   letter-spacing: -.03em;
   background: linear-gradient(135deg, var(--text) 20%, var(--brand) 70%, #818cf8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  padding-bottom: 0.12em;
   margin-bottom: 14px;
 }
 .pricing-hero .subtitle {
-  font-size: 17px; color: var(--text-2); max-width: 52ch; margin: 0 auto 24px;
+  font-size: 17px; color: var(--text-2); margin: 0 auto 24px; white-space: nowrap;
 }
 .trial-badge {
   display: inline-flex; align-items: center; gap: 7px;

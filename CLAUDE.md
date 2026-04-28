@@ -10,7 +10,7 @@ Mở bằng **VS Code Live Server** trên port `5501` (cấu hình trong `.vscod
 
 ## Kiến trúc
 
-Landing page tĩnh cho **LadyLogin** (Anti-Detect Browser). Dự án gồm hai trang:
+Landing page tĩnh cho **LadyLogin** (Anti-Detect Browser). Dự án gồm ba trang:
 
 ### Trang chính: `.vscode/index.html`
 - Toàn bộ markup + JavaScript inline ở cuối file
@@ -19,6 +19,11 @@ Landing page tĩnh cho **LadyLogin** (Anti-Detect Browser). Dự án gồm hai t
 ### Trang bảng giá: `.vscode/.vscode/banggia.html`
 - Link cả hai CSS: `../style.css` (dùng chung CSS variables và component classes) + `../../banggia.css` (styles riêng)
 - `banggia.css` nằm ở **root** (`c:\test\banggia.css`), không phải trong `.vscode/`
+
+### Trang blog: `.vscode/.vscode/blog.html`
+- **Chỉ link** `../../blog.css` — **không link** `../style.css`
+- Lý do: `style.css` có scroll reveal rules (`opacity: 0` cho nhiều selectors) gây ẩn content trên trang không có IntersectionObserver phù hợp
+- `blog.css` nằm ở **root** (`c:\test\blog.css`), tự chứa `:root` CSS variables (copy từ `style.css`), CSS reset, `.btn` classes, và `.scroll-progress`
 
 ### Style chung: `.vscode/style.css`
 CSS custom properties qua `:root`, không dùng preprocessor. Các biến quan trọng:
@@ -113,6 +118,16 @@ Breakpoints trong `banggia.css`:
 
 ### Comparison table — scroll wrapper
 Bảng được wrap trong `<div class="comp-table-scroll">` bên trong `comp-table-wrap`. Mục đích: `overflow-x: auto` chỉ ảnh hưởng bảng, không block `position: sticky` trên `thead th` ở desktop. Trên mobile (`≤768px`), bảng thu nhỏ font thay vì scroll ngang.
+
+---
+
+## JavaScript của blog.html
+
+- **`renderGrid()`** — render `.article-card` từ mảng `ARTICLES` vào `#articleGrid`; filter theo `currentCat` và search input
+- **`setCategory(btn, cat)`** — toggle active tab, reset `currentPage`, gọi `renderGrid()`
+- **`filterArticles()`** — debounce search, gọi `renderGrid()`
+- **`setPage(n)`** — cập nhật pagination UI, scroll về `.blog-main`
+- **Scroll progress bar** — giống `index.html`
 
 ---
 
