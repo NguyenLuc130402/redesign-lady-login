@@ -2,151 +2,169 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-File này cung cấp hướng dẫn cho Claude Code (claude.ai/code) khi làm việc trong repository này.
-
 ## Chạy dự án
 
-Mở bằng **VS Code Live Server** trên port `5501` (cấu hình trong `.vscode/settings.json` và `.vscode/.vscode/settings.json`). Không có bước build, không có dependency, không có package manager — chỉ cần mở file HTML trực tiếp trên trình duyệt hoặc qua Live Server.
+Mở bằng **VS Code Live Server** trên port `5501`. Không có build step, không có package manager — HTML/CSS/JS thuần, mở trực tiếp trên trình duyệt.
 
-## Kiến trúc
+## Cấu trúc file
 
-Landing page tĩnh cho **LadyLogin** (Anti-Detect Browser). Dự án gồm ba trang:
-
-### Trang chính: `.vscode/index.html`
-- Toàn bộ markup + JavaScript inline ở cuối file
-- Style từ `.vscode/style.css`
-
-### Trang bảng giá: `.vscode/.vscode/banggia.html`
-- Link cả hai CSS: `../style.css` (dùng chung CSS variables và component classes) + `../../banggia.css` (styles riêng)
-- `banggia.css` nằm ở **root** (`c:\test\banggia.css`), không phải trong `.vscode/`
-
-### Trang blog: `.vscode/.vscode/blog.html`
-- **Chỉ link** `../../blog.css` — **không link** `../style.css`
-- Lý do: `style.css` có scroll reveal rules (`opacity: 0` cho nhiều selectors) gây ẩn content trên trang không có IntersectionObserver phù hợp
-- `blog.css` nằm ở **root** (`c:\test\blog.css`), tự chứa `:root` CSS variables (copy từ `style.css`), CSS reset, `.btn` classes, và `.scroll-progress`
-
-### Style chung: `.vscode/style.css`
-CSS custom properties qua `:root`, không dùng preprocessor. Các biến quan trọng:
-- `--brand: #7c3aed` (purple), `--brand-soft`, `--brand-muted`, `--brand-dark`
-- `--bg`, `--bg-soft`, `--bg-muted`, `--text`, `--text-2`, `--muted`, `--line`
-- `--radius-sm / --radius / --radius-lg / --radius-xl`
-- `--shadow-sm / --shadow / --shadow-lg`
-
----
-
-## Scroll Reveal Animation (quan trọng)
-
-`style.css` set `opacity: 0; transform: translateY(28px)` cho nhiều elements (`.pricing-card`, `.feature-card`, `.dl-card`, `.section-head`, `details`, v.v.). Class **`.in-view`** mới làm chúng hiện ra.
-
-Trong `index.html`, IntersectionObserver tự động xử lý. Trong **các trang con** (`banggia.html`, v.v.) phải tự thêm IntersectionObserver:
-
-```js
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); revealObserver.unobserve(e.target); } });
-}, { threshold: 0.08 });
-document.querySelectorAll('.pricing-card, .section-head, .dl-card, details, ...').forEach(el => revealObserver.observe(el));
+```
+c:\test\
+├── index.html              ← Trang chính (landing page)
+├── banggia.html            ← Bảng giá
+├── blog.html               ← Blog
+├── taixuong.html           ← Trang tải xuống
+├── trungtamdoitac.html     ← Trung tâm đối tác
+├── trungtamhotro.html      ← Trung tâm hỗ trợ (có sidebar nav)
+├── vechungtoi.html         ← Về chúng tôi
+├── gioithieu.html          ← Chương trình giới thiệu/referral
+└── css/
+    ├── style.css           ← CSS chính (chỉ dùng cho index + banggia)
+    ├── banggia.css
+    ├── blog.css
+    ├── taixuong.css
+    ├── trungtamdoitac.css
+    ├── trungtamhotro.css
+    ├── vechungtoi.css
+    └── gioithieu.css
 ```
 
-Nếu thêm element mới dùng class có animation trong `style.css` vào trang con → phải thêm selector vào observer.
+## Quy tắc CSS linking (quan trọng)
 
----
+- **`index.html`** → chỉ `css/style.css`
+- **`banggia.html`** → link cả `css/style.css` **và** `css/banggia.css` (dùng shared component classes từ style.css như `.pricing-card`, `.dl-card`, `.btn`)
+- **Tất cả trang còn lại** → chỉ link CSS riêng của trang đó, **không link** `css/style.css`
 
-## Cấu trúc sections của index.html
+Lý do: `style.css` có scroll reveal rules (`opacity: 0` cho nhiều selectors) gây ẩn content trên trang không có IntersectionObserver tương ứng. Mỗi CSS trang con tự chứa `:root` variables (copy từ `style.css`) và tự định nghĩa mọi thứ cần thiết.
 
-| Section | id / class | Mô tả |
-|---|---|---|
-| Announcement Bar | `.announcement-bar` | Dải thông báo trên cùng |
-| Header | `.header` | Nav + dropdowns + language toggle + CTA |
-| Hero | `.hero` | Headline trái + dashboard panel phải |
-| Brands | `.brands-section` | Logo marquee tĩnh |
-| Stats | `.stats-section` | 4 số liệu: 50k+ users, 2M+ profiles, 99.9% uptime, 100+ quốc gia |
-| Features | `#features` | 6 feature card |
-| How It Works | `#how` | 3 bước setup + 2 testimonial |
-| Pricing | `#pricing` | 3 gói: Starter (0đ), Growth (690K/tháng), Scale (Liên hệ) |
-| Partner Bar | `.partner-section` | Infinite scroll marquee 14 platform, nhân đôi item để tạo loop |
-| Use Cases | `#usecases` | Layout tab dọc trái + iPad mockup phải, 9 tab |
-| Fingerprint | `#fingerprint` | Danh sách tính năng trái + code panel phải |
-| Security | `.security-section` | 4 card bảo mật |
-| FAQ | `#faq` | `<details>` native HTML |
-| CTA Banner | `.cta-section` | Call-to-action toàn chiều rộng |
-| Download | `#download` | 3 card: Windows, macOS, Web App |
-| Footer | `.footer` | Brand + contact, 3 cột link, payment badges |
+## CSS Variables dùng chung
 
----
+Mọi CSS file đều copy cùng bộ `:root` này từ `style.css`:
 
-## JavaScript của index.html
+```css
+--brand: #7c3aed;  --brand-light: #8b5cf6;  --brand-soft: #f5f3ff;
+--brand-muted: #ede9fe;  --brand-dark: #6d28d9;
+--text: #0f172a;  --text-2: #334155;  --muted: #64748b;
+--bg: #ffffff;  --bg-soft: #f8fafc;  --line: #e2e8f0;
+--radius: 12px;  --radius-lg: 16px;  --radius-xl: 24px;
+--shadow-sm / --shadow / --shadow-lg / --shadow-brand
+```
 
-Tất cả JS trong một khối `<script>` cuối file:
+## Scroll Reveal — pattern chuẩn cho trang con
 
-- **`switchTab(btn, panelId)`** — 9 panel iPad trong Use Cases; toggle class `active` trên `.uc-tab` và `.ipad-panel`
-- **Nav dropdowns** — `mouseenter`/`mouseleave` trên `.nav-dropdown` toggle class `.open` với delay 80ms; áp dụng cho 3 dropdown (Tính Năng, Giải Pháp, Tài Nguyên)
-- **`applyLang(lang)` / `toggleLang()`** — query `[data-i18n]` và set `innerHTML` từ object `translations`; cũng xử lý `[data-i18n-html]`
-- **Scroll progress bar** — inject `<div class="scroll-progress">` vào `document.body`, width theo `scrollY / scrollHeight`
-- **Header `.scrolled`** — thêm class khi scroll > 60px
-- **Section fade-in** — `IntersectionObserver` thêm class **`.in-view`** (không phải `visible`)
-- **Nav active** — highlight link nav theo section đang scroll vào viewport
+Thêm vào cuối `<script>` của mỗi trang con:
 
-## JavaScript của banggia.html
+```js
+// Scroll progress bar
+const progressBar = document.createElement("div");
+progressBar.className = "scroll-progress";
+document.body.prepend(progressBar);
+window.addEventListener(
+  "scroll",
+  () => {
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.setProperty(
+      "--pct",
+      (total > 0 ? (window.scrollY / total) * 100 : 0).toFixed(2) + "%",
+    );
+  },
+  { passive: true },
+);
 
-- **`setBilling(period, btn)`** — toggle Tháng/Quý/Năm, gọi `updatePrices()`
-- **`selectProfile(btn, plan, count)`** — chọn số profile cho gói Pro
-- **`changeTeam(plan, delta)`** — stepper thành viên nhóm cho Pro và Biz
-- **`changeBizProfile(delta)`** — stepper số profile cho gói Biz
-- **`updatePrices()`** — tính lại giá theo period + profiles + team, format với `formatPrice()`
-- **`renderComp()`** — render comparison table từ mảng `COMP_DATA`
-- **`toggleComp()`** — animate show/hide bảng so sánh bằng `scrollHeight` (không dùng `display:none`); quản lý `overflow` inline để `position: sticky` hoạt động khi mở
-- **FAQ animation** — intercept click trên `<details>`, animate `.faq-a` với `max-height` + `opacity`
-- **Count-up** — `IntersectionObserver` trigger đếm số trong `.trust-stat` khi scroll đến
-- **Scroll progress bar** — giống index.html
-- **Scroll hints** — `.plan-scroll-hint`, `.dl-scroll-hint`: click cuộn sang card tiếp theo (cardWidth + 12px gap); khi đến cuối thì `scrollTo(0)` quay về đầu. Bảng comparison có `.comp-scroll-hint` (hiện tại ẩn vì bảng fit vừa màn hình mobile)
+// Scroll reveal
+const revealIO = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add("in-view");
+        revealIO.unobserve(e.target);
+      }
+    });
+  },
+  { threshold: 0.08 },
+);
+document
+  .querySelectorAll(".section-head, /* ...selectors... */")
+  .forEach((el) => revealIO.observe(el));
+```
 
----
+CSS tương ứng phải có:
+
+```css
+.selector {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+.selector.in-view {
+  opacity: 1;
+  transform: none;
+}
+.selector.in-view:hover {
+  transform: translateY(-5px);
+} /* nếu card có hover */
+```
+
+Class reveal dùng `.in-view` (không phải `.visible`). Stagger delay: set `el.style.transitionDelay` trong JS khi observe (không dùng `:nth-child` trong CSS).
+
+## Hero pattern cho trang con
+
+Tất cả trang con dùng hero sáng cùng pattern:
+
+```css
+background: linear-gradient(160deg, #fdfcff 0%, #f0ebff 45%, #faf8ff 100%);
+/* + ::before radial gradients tím nhạt + ::after grid dot pattern 60px */
+```
+
+Shimmer animation trên `h1 span`:
+
+```css
+background: linear-gradient(90deg, var(--brand), #a78bfa, var(--brand));
+background-size: 200% auto;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+animation: shimmer 3s linear infinite;
+```
+
+## JavaScript — index.html
+
+Toàn bộ JS inline cuối file. Các function chính:
+
+- `switchTab(btn, panelId)` — 9 panel iPad trong Use Cases
+- `applyLang(lang)` / `toggleLang()` — i18n qua `[data-i18n]` attributes
+- Nav dropdowns — `mouseenter/mouseleave` với delay 80ms, toggle class `.open`
+- Scroll progress, header `.scrolled` (>60px), IntersectionObserver `.in-view`
+
+## JavaScript — banggia.html
+
+- `setBilling(period, btn)` + `updatePrices()` — toggle Tháng/Quý/Năm, tính giá
+- `selectProfile` / `changeTeam` / `changeBizProfile` — steppers cấu hình gói
+- `renderComp()` / `toggleComp()` — bảng so sánh (dùng `scrollHeight` animate, không `display:none`)
+- FAQ animation: intercept `<details>` click, animate `.faq-a` bằng `max-height + opacity`
+- Count-up cho `.trust-stat` khi scroll đến
+
+## JavaScript — trungtamhotro.html
+
+SPA-style sidebar navigation:
+
+- `toggleGroup(el)` / `toggleChild(el)` — mở/đóng sidebar accordion
+- `showContent(id, title, parent)` — load nội dung từ object `CONTENT`, update breadcrumb, trigger animation bằng `void panel.offsetWidth` trước khi add class `active`
+- `triggerSection(group, contentId, title, parent)` — mở group + show content (dùng cho quick links)
+- Trên mobile (≤768px), `showContent` tự `scrollIntoView` xuống content area
+- Content animation: `.hc-content-inner.active { animation: hcFadeIn .32s ... }`
+
+## Quy tắc i18n (chỉ index.html)
+
+Mọi text phải có `data-i18n="key"` + entry trong cả `translations.vi` và `translations.en`. Khi element chứa SVG con, wrap text trong `<span data-i18n="key">` — không đặt `data-i18n` trực tiếp trên element cha (sẽ xóa mất SVG).
+
+## taixuong.html — đặc điểm riêng
+
+- Dùng **Font Awesome CDN** cho OS icons: `<i class="fa-brands fa-linux">`, `<i class="fab fa-windows">`
+- Tab OS chọn hệ điều hành (Windows/macOS/Linux), panel hiển thị tương ứng
+- `.features-strip-inner` dùng `repeat(2, 1fr)` — 2 cột ở mọi kích thước
 
 ## Responsive Mobile — banggia.html
 
-`banggia.css` **không override** `.pricing-grid` với `!important` — để `style.css` tự handle horizontal scroll ở `≤768px` (mỗi card `min(300px, 78vw)`, `scroll-snap-type: x mandatory`). Tương tự `.dl-grid` scroll ngang từ `≤860px`.
-
-Breakpoints trong `banggia.css`:
-
-| Breakpoint | Thay đổi chính |
-|---|---|
-| `≤ 900px` | `.config-row` stack dọc, `.profile-btns` wrap |
-| `≤ 860px` | `.dl-scroll-hint` hiện |
-| `≤ 768px` | `.plan-scroll-hint` hiện; trust stats → 2×2 grid; bảng comparison thu nhỏ font/padding để 4 cột vừa màn hình (không scroll ngang) |
-| `≤ 640px` | Giảm section padding, billing toggle wrap, FAQ padding nhỏ hơn |
-| `≤ 480px` | Price amount 32px, trust stat số 26px |
-
-### Comparison table — scroll wrapper
-Bảng được wrap trong `<div class="comp-table-scroll">` bên trong `comp-table-wrap`. Mục đích: `overflow-x: auto` chỉ ảnh hưởng bảng, không block `position: sticky` trên `thead th` ở desktop. Trên mobile (`≤768px`), bảng thu nhỏ font thay vì scroll ngang.
-
----
-
-## JavaScript của blog.html
-
-- **`renderGrid()`** — render `.article-card` từ mảng `ARTICLES` vào `#articleGrid`; filter theo `currentCat` và search input
-- **`setCategory(btn, cat)`** — toggle active tab, reset `currentPage`, gọi `renderGrid()`
-- **`filterArticles()`** — debounce search, gọi `renderGrid()`
-- **`setPage(n)`** — cập nhật pagination UI, scroll về `.blog-main`
-- **Scroll progress bar** — giống `index.html`
-
----
-
-## Quy tắc i18n (chỉ áp dụng index.html)
-
-Mọi chuỗi text **phải** có `data-i18n="key"` và entry trong **cả hai** `translations.vi` và `translations.en`.
-
-Khi element chứa node con (ví dụ button có SVG), chỉ wrap text trong `<span data-i18n="key">` — đặt `data-i18n` trực tiếp trên element cha sẽ xóa mất SVG khi `innerHTML` được set.
-
-`banggia.html` hiện chưa có i18n.
-
----
-
-## Cấu trúc nav dropdown (index.html)
-
-Ba loại dropdown, dùng chung hover JS và CSS `visibility/opacity` transition:
-
-- **Tính Năng / Features** — danh sách dọc (`.nav-dropdown-item` với `.nav-di-icon` + `.nav-di-text`)
-- **Giải Pháp / Solutions** — mega menu (`.nav-mega-menu`): header strip + grid 3 cột (`.nav-mega-grid` → `.nav-mega-item`)
-- **Tài Nguyên / Resources** — danh sách dọc thông thường
-
-Dùng `padding-top: 16px` thay vì `margin-top` trên dropdown menu để tránh gap làm mất hover state.
+`banggia.css` không override `.pricing-grid` — để `style.css` tự xử lý horizontal scroll ở ≤768px (`scroll-snap-type: x mandatory`). Tương tự `.dl-grid` từ ≤860px.
