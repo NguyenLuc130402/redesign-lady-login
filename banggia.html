@@ -643,6 +643,45 @@ if (compScrollWrap && compScrollHint) {
   });
 }
 
+// Swipe hint animation
+(function () {
+  if (window.innerWidth > 900) return;
+  var DIST = 50, HALF = 250;
+  function hint(el) {
+    if (!el || el.scrollWidth <= el.clientWidth + 4 || el.scrollLeft > 0) return;
+    var t0 = null;
+    function fwd(ts) {
+      if (!t0) t0 = ts;
+      var p = Math.min((ts - t0) / HALF, 1);
+      el.scrollLeft = DIST * (1 - Math.pow(1 - p, 2));
+      if (p < 1) { requestAnimationFrame(fwd); return; }
+      var t1 = null;
+      requestAnimationFrame(function bk(ts2) {
+        if (!t1) t1 = ts2;
+        var q = Math.min((ts2 - t1) / HALF, 1);
+        el.scrollLeft = DIST * Math.pow(1 - q, 2);
+        if (q < 1) requestAnimationFrame(bk); else el.scrollLeft = 0;
+      });
+    }
+    requestAnimationFrame(fwd);
+  }
+  var hintIO = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      hintIO.unobserve(e.target);
+      var el = e.target;
+      setTimeout(function () { hint(el); }, 400);
+    });
+  }, { threshold: 0.3 });
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      document.querySelectorAll('.pricing-grid, .dl-grid').forEach(function (el) {
+        hintIO.observe(el);
+      });
+    }, 600);
+  });
+}());
+
 // IntersectionObserver — trigger .in-view để show các elements bị ẩn bởi style.css
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); revealObserver.unobserve(e.target); } });

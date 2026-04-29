@@ -23,10 +23,7 @@
     <div class="container nav-wrap">
       <a class="brand" href="#">
         <span class="brand-mark">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-            <path d="M9 1L16 5V13L9 17L2 13V5L9 1Z" fill="white" fill-opacity="0.9"/>
-            <path d="M9 5L13 7.5V12.5L9 15L5 12.5V7.5L9 5Z" fill="white" fill-opacity="0.4"/>
-          </svg>
+          <img src="logo/ladylogin_logo_purple.png" alt="LadyLogin" width="36" height="36" style="display:block;object-fit:contain;">
         </span>
         <span class="brand-text">LadyLogin</span>
       </a>
@@ -146,15 +143,15 @@
               <span class="nav-di-icon">📝</span>
               <span class="nav-di-text" data-i18n="res-blog">Blog &amp; Kiến thức</span>
             </a>
-            <a href="#" class="nav-dropdown-item" role="menuitem">
+            <a href="trungtamdoitac.html" class="nav-dropdown-item" role="menuitem">
               <span class="nav-di-icon">🤝</span>
-              <span class="nav-di-text" data-i18n="res-partner">Chương trình Đối tác</span>
+              <span class="nav-di-text" data-i18n="res-partner" >Chương trình Đối tác</span>
             </a>
             <a href="#" class="nav-dropdown-item" role="menuitem">
               <span class="nav-di-icon">👨‍👩‍👧‍👦</span>
               <span class="nav-di-text" data-i18n="res-community">Cộng đồng Người dùng</span>
             </a>
-            <a href="#" class="nav-dropdown-item" role="menuitem">
+            <a href="trungtamhotro.html" class="nav-dropdown-item" role="menuitem">
               <span class="nav-di-icon">🎧</span>
               <span class="nav-di-text" data-i18n="res-support">Trung tâm Hỗ trợ</span>
             </a>
@@ -170,6 +167,7 @@
         </div>
         <a href="gioithieu.html" data-i18n="nav-about">Giới Thiệu</a>
         <a href="#how" data-i18n="nav-guide">Hướng Dẫn</a>
+        <a href="taixuong.html" data-i18n="nav-guide">Tải Xuống</a>
         <a href="banggia.html" data-i18n="nav-pricing">Bảng Giá</a>
         <a href="#faq">FAQ</a>
       </nav>
@@ -1526,6 +1524,96 @@
     }
 
     initCarousels();
+
+    // ── Swipe hint animation ──────────────────────────────────
+    (function () {
+      if (window.innerWidth > 900) return;
+      var DIST = 50, HALF = 250;
+      function hint(el) {
+        if (!el || el.scrollWidth <= el.clientWidth + 4 || el.scrollLeft > 0) return;
+        var t0 = null;
+        function fwd(ts) {
+          if (!t0) t0 = ts;
+          var p = Math.min((ts - t0) / HALF, 1);
+          el.scrollLeft = DIST * (1 - Math.pow(1 - p, 2));
+          if (p < 1) { requestAnimationFrame(fwd); return; }
+          var t1 = null;
+          requestAnimationFrame(function bk(ts2) {
+            if (!t1) t1 = ts2;
+            var q = Math.min((ts2 - t1) / HALF, 1);
+            el.scrollLeft = DIST * Math.pow(1 - q, 2);
+            if (q < 1) requestAnimationFrame(bk); else el.scrollLeft = 0;
+          });
+        }
+        requestAnimationFrame(fwd);
+      }
+      var hintIO = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          hintIO.unobserve(e.target);
+          var el = e.target;
+          setTimeout(function () { hint(el); }, 400);
+        });
+      }, { threshold: 0.3 });
+      window.addEventListener('load', function () {
+        setTimeout(function () {
+          document.querySelectorAll('.feature-grid, .pricing-grid, .security-grid, .dl-grid').forEach(function (el) {
+            hintIO.observe(el);
+          });
+        }, 600);
+      });
+    }());
+
+    // ── Use Cases auto-carousel (all devices) ────────────────
+    (function () {
+      var ipadPanels = document.querySelector('.ipad-panels');
+      if (!ipadPanels) return;
+      var tabs = Array.from(document.querySelectorAll('.uc-tab'));
+      var panelEls = Array.from(ipadPanels.querySelectorAll('.ipad-panel'));
+      var count = panelEls.length;
+      if (count < 2) return;
+      var timer = null, paused = false, startDelay = null;
+
+      function currentIndex() {
+        if (window.innerWidth <= 640) {
+          var w = ipadPanels.clientWidth || window.innerWidth;
+          return Math.round(ipadPanels.scrollLeft / w);
+        }
+        for (var i = 0; i < count; i++) {
+          if (panelEls[i].classList.contains('active')) return i;
+        }
+        return 0;
+      }
+
+      function advance() {
+        var next = (currentIndex() + 1) % count;
+        switchTab(tabs[next] || null, panelEls[next].id);
+      }
+
+      function start() {
+        if (timer || paused) return;
+        timer = setInterval(advance, 3200);
+      }
+
+      function stop() {
+        clearInterval(timer); timer = null;
+        clearTimeout(startDelay); startDelay = null;
+      }
+
+      ipadPanels.addEventListener('touchstart', function () { paused = true; stop(); }, { passive: true });
+      ipadPanels.addEventListener('click', function () { paused = true; stop(); });
+      tabs.forEach(function (tab) { tab.addEventListener('click', function () { paused = true; stop(); }); });
+
+      var ucIO = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting && !paused) {
+          startDelay = setTimeout(start, 800);
+        } else {
+          stop();
+        }
+      }, { threshold: 0.2 });
+
+      ucIO.observe(ipadPanels);
+    }());
 
     // ── Language switcher ─────────────────────────────────────
     const translations = {

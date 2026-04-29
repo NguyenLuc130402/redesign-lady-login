@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trung Tâm Đối Tác — LadyLogin</title>
+<meta name="description" content="Khám phá hệ sinh thái đối tác của LadyLogin — proxy, thương mại điện tử, AI, thanh toán và nhiều hơn nữa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/trungtamdoitac.css">
+</head>
+<body>
+
+<!-- HERO -->
+<section class="partner-hero">
+  <div class="container">
+    <div class="hero-tag">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <path d="M2 7L7 2L12 7" stroke="#FF8A8A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M4 5v7h6V5" stroke="#FF8A8A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Hệ sinh thái đối tác
+    </div>
+    <h1>Kết nối với các đối tác<br><span>tin cậy của LadyLogin</span></h1>
+    <p>Khám phá hệ sinh thái đối tác được chọn lọc kỹ càng — từ proxy chất lượng cao, nền tảng thương mại điện tử, đến các công cụ AI và thanh toán quốc tế.</p>
+    <a href="#become-partner" class="hero-cta">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <path d="M9 2v14M2 9h14" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      Trở thành đối tác
+    </a>
+  </div>
+</section>
+
+<!-- MAIN -->
+<div class="main-wrap">
+
+  <!-- TAG FILTER -->
+  <div class="tag-filter" id="tagFilter"></div>
+
+  <!-- PARTNER GRID -->
+  <div class="partner-grid" id="partnerGrid"></div>
+
+  <!-- CTA BANNER -->
+  <div class="cta-banner" id="become-partner">
+    <h2>Kết nối và phát triển cùng LadyLogin</h2>
+    <p>Tham gia hệ sinh thái đối tác ngày càng mở rộng của LadyLogin. Cùng nhau phục vụ hàng nghìn người dùng anti-detect browser chuyên nghiệp.</p>
+    <a href="mailto:partner@ladylogin.com" class="cta-btn">Trở thành đối tác</a>
+  </div>
+</div>
+
+<script>
+const TAGS = [
+  { key: 'all', label: 'Tất cả các thẻ' },
+  { key: 'proxy', label: 'Đại lý Proxy' },
+  { key: 'ecommerce', label: 'Thương mại điện tử' },
+  { key: 'payment', label: 'Dịch vụ thanh toán' },
+  { key: 'ai', label: 'Trí tuệ nhân tạo' },
+  { key: 'ads', label: 'Dịch vụ quảng cáo' },
+  { key: 'account', label: 'Đại lý tài khoản' },
+  { key: 'marketing', label: 'Tiếp thị số' },
+  { key: 'affiliate', label: 'Tiếp thị liên kết' },
+];
+
+const PARTNERS = [
+  // PROXY
+  {
+    id: 1, name: 'IPFoxy', category: 'proxy',
+    desc: 'IPFoxy là nhà cung cấp proxy hàng đầu thị trường, cam kết cung cấp hạ tầng proxy chất lượng cao và ổn định, hoàn toàn tương thích với LadyLogin.',
+    logo: 'https://img.adspower.net/top-browser/e0/3579f0e51026a8b9a8085a590cc342.png'
+  },
+  {
+    id: 2, name: 'Oxylabs', category: 'proxy',
+    desc: 'Oxylabs là giải pháp proxy và web scraping cao cấp, giúp các doanh nghiệp thuộc mọi quy mô thu thập dữ liệu web một cách hiệu quả cùng LadyLogin.',
+    logo: 'https://img.adspower.net/top-browser/dc/3b5628e5b95de203f4cf811368c84e.png'
+  },
+  {
+    id: 3, name: 'Bright Data', category: 'proxy',
+    desc: 'Bright Data là nền tảng hạ tầng proxy và dữ liệu web số 1 thế giới, tích hợp sẵn với LadyLogin để tối ưu hoá trải nghiệm đa tài khoản.',
+    logo: 'https://img.adspower.net/top-browser/bb/683a4984aea8c37c510443a6cd34ca.png'
+  },
+  {
+    id: 4, name: 'Smartproxy', category: 'proxy',
+    desc: 'Smartproxy cung cấp hạ tầng thu thập dữ liệu web chất lượng cao, phù hợp hoàn hảo với các usecase MMO và automation trên LadyLogin.',
+    logo: 'https://img.adspower.net/top-browser/5a/47d3377cb3a86dca8ec57d1398eea2.png'
+  },
+  {
+    id: 5, name: 'XoayProxy', category: 'proxy',
+    desc: 'XoayProxy.com — dịch vụ Proxy Xoay Chuẩn Dân Cư Chất Lượng Cao, được tích hợp và kiểm định bởi đội ngũ LadyLogin.',
+    logo: 'https://img.adspower.net/top-browser/9a/6bc40968162a2ec229264b20f0b67c.png'
+  },
+  {
+    id: 6, name: 'M Proxy', category: 'proxy',
+    desc: 'MProxy.vn là nhà cung cấp dịch vụ Proxy Mobile 4G/5G và Proxy Datacenter Việt Nam chuyên biệt cho cộng đồng MMO và anti-detect browser.',
+    logo: 'https://img.adspower.net/top-browser/30/cc8d2ca19884d8df7c6cbdc9194b75.png'
+  },
+  {
+    id: 7, name: 'ProxyNo1', category: 'proxy',
+    desc: 'Proxyno1 cung cấp Proxy Dân Cư và 4G Private Việt Nam, tốc độ cao, bảo mật tốt — lựa chọn phổ biến trong cộng đồng người dùng LadyLogin.',
+    logo: 'https://img.adspower.net/top-browser/16/f7d6bf45719c2d88334a92e8b07b99.png'
+  },
+  {
+    id: 8, name: 'Lumiproxy', category: 'proxy',
+    desc: 'Lumiproxy cung cấp proxy dân cư chất lượng cao với gói băng thông không giới hạn, tương thích hoàn toàn với tất cả tính năng của LadyLogin.',
+    logo: 'https://img.adspower.net/top-browser/08/1dd3b9eef5fa0599ac1148b0ef3789.png'
+  },
+  {
+    id: 9, name: 'GoProxy', category: 'proxy',
+    desc: 'GoProxy — nhà cung cấp IP từ Hồng Kông, chuyên cung cấp dịch vụ proxy ổn định và nhanh nhất thị trường, hỗ trợ đầy đủ LadyLogin.',
+    logo: 'https://img.adspower.net/top-browser/ec/245ee4fae0414f91117f1909febd8c.png'
+  },
+  {
+    id: 10, name: 'iProxy.online', category: 'proxy',
+    desc: 'Tự tạo proxy mobile bằng điện thoại của bạn, hoặc mua proxy mobile trực tiếp từ các nhà cung cấp uy tín. Dễ dàng cài đặt qua LadyLogin.',
+    logo: 'https://img.adspower.net/top-browser/d4/b3270c74ab684fcd1549e58c38d10b.png'
+  },
+  {
+    id: 11, name: 'NodeMaven', category: 'proxy',
+    desc: 'NodeMaven là nhà cung cấp proxy dân cư với IP chất lượng cao nhất thị trường, tốc độ ổn định và băng thông lớn — đối tác proxy của LadyLogin.',
+    logo: 'https://img.adspower.net/top-browser/9f/1a463945a044fb4428a3130694cb67.png'
+  },
+  {
+    id: 12, name: 'LTEBoost', category: 'proxy',
+    desc: 'LTEBoost cung cấp proxy 4G/5G và Residential cho doanh nghiệp. Hiệu năng cao, ổn định, phù hợp với mọi tác vụ automation trên LadyLogin.',
+    logo: 'https://img.adspower.net/top-browser/c6/a7f0a0a6924ee24bcf490d486a38e8.png'
+  },
+  {
+    id: 13, name: 'Proxy Siêu Tốc', category: 'proxy',
+    desc: 'Proxysieutoc.com là nền tảng cung cấp dịch vụ proxy tốc độ cao, tối ưu cho người dùng MMO và anti-detect browser tại Việt Nam.',
+    logo: 'https://img.adspower.net/top-browser/b2/065df9730322a42e45874e66da798a.png'
+  },
+  {
+    id: 14, name: '5StarsProxy', category: 'proxy',
+    desc: 'Giải pháp proxy tối ưu cho dân Ads & MMO. Hệ thống proxy vượt trội với hiệu năng cao, bảo mật tốt — tích hợp hoàn toàn với LadyLogin.',
+    logo: 'https://img.adspower.net/top-browser/02/7bf1b09fed6481553c9a4d2892f7e9.png'
+  },
+  // ECOMMERCE
+  {
+    id: 15, name: 'SaleSmartly', category: 'ecommerce',
+    desc: 'SaleSmartly là công cụ e-shop dành cho các thương nhân muốn mở rộng ra thị trường quốc tế, tích hợp tốt với quy trình quản lý multi-account trên LadyLogin.',
+    logo: 'https://img.adspower.net/top-browser/be/8827e0e76b8e27bfb800ba56ecaf1c.png'
+  },
+  {
+    id: 16, name: 'Shoplazza', category: 'ecommerce',
+    desc: 'Shoplazza cung cấp giải pháp SaaS thương mại điện tử cấp doanh nghiệp và dịch vụ xây dựng thương hiệu DTC, đối tác chiến lược của LadyLogin.',
+    logo: 'https://img.adspower.net/top-browser/3d/55e72fa1df2c9ae4c40570f9221752.png'
+  },
+  {
+    id: 17, name: 'Joom', category: 'ecommerce',
+    desc: 'Joom là tập đoàn thương mại điện tử và fintech quốc tế, hỗ trợ người bán mở rộng quy mô kinh doanh toàn cầu cùng LadyLogin.',
+    logo: 'https://img.adspower.net/top-browser/83/c7447df2368f3ee5e25bbddc8a0fd6.png'
+  },
+  // PAYMENT
+  {
+    id: 18, name: 'Payssion', category: 'payment',
+    desc: 'Payssion là nhà cung cấp giải pháp thanh toán xuyên biên giới một cửa hàng đầu, hỗ trợ các phương thức thanh toán quốc tế cho người dùng LadyLogin.',
+    logo: 'https://img.adspower.net/top-browser/df/374e96d0c7908c0709f13d1ed19e25.png'
+  },
+  {
+    id: 19, name: 'Adpos', category: 'payment',
+    desc: 'Adpos cung cấp dịch vụ quản lý thẻ ảo cho quảng cáo, giúp tối ưu chi phí và quản lý ngân sách ads cho người dùng LadyLogin.',
+    logo: 'https://img.adspower.net/top-browser/e8/6b6580f639c14bd799b04e320d72d8.png'
+  },
+  // AI
+  {
+    id: 20, name: 'CapSolver', category: 'ai',
+    desc: 'CapSolver.ai là giải pháp tự động giải captcha tốt nhất với công nghệ AI, tương thích hoàn toàn với quy trình automation của LadyLogin.',
+    logo: 'https://img.adspower.net/top-browser/8d/9ecb38a9e2539b4b51a55725e07cf8.png'
+  },
+  {
+    id: 21, name: 'HelpLook', category: 'ai',
+    desc: 'HelpLook là nền tảng tạo hướng dẫn sử dụng sản phẩm e-commerce trực tuyến và Chatbot AI tuỳ chỉnh, đối tác công nghệ của LadyLogin.',
+    logo: 'https://img.adspower.net/top-browser/9c/9828791789c7a37af9e6f1897bbd5d.png'
+  },
+  // ADS
+  {
+    id: 22, name: 'WebsoAds', category: 'ads',
+    desc: 'Triển khai 900+ chiến dịch truyền thông cho 800+ khách hàng và hàng trăm thương hiệu trong nước và quốc tế — đối tác truyền thông của LadyLogin.',
+    logo: 'https://img.adspower.net/top-browser/e9/bdd7d6552066997814db0c3ac0e1cd.png'
+  },
+  {
+    id: 23, name: 'AGrowth Agency', category: 'ads',
+    desc: 'AGrowth là nhà cung cấp hạ tầng quảng cáo uy tín, cung cấp tài khoản ads cấp agency và hỗ trợ toàn diện cho người dùng LadyLogin.',
+    logo: 'https://img.adspower.net/top-browser/bc/9111e82d6166696392ec5792d1b076.png'
+  },
+  {
+    id: 23, name: 'Adspect', category: 'ads',
+    desc: 'Adspect.ai là dịch vụ cloaking chuyên nghiệp cho Google Ads, Facebook, TikTok và nhiều nền tảng khác — đối tác quảng cáo của LadyLogin.',
+    logo: 'https://img.adspower.net/top-browser/a3/9fed977771c465bf06907b6b54b20e.png'
+  },
+  {
+    id: 24, name: 'CloakBro', category: 'ads',
+    desc: 'CloakBro lọc khách truy cập không mong muốn ra khỏi landing page của bạn. Cloaker duy nhất với tính năng đảm bảo 100% dành cho người dùng LadyLogin.',
+    logo: 'https://img.adspower.net/top-browser/da/56887208176963c173302042760a9c.png'
+  },
+  // ACCOUNT
+  {
+    id: 25, name: 'Ultra Ads Media', category: 'account',
+    desc: 'Ultra Ads Media chuyên cung cấp dịch vụ cho thuê tài khoản quảng cáo cho các thị trường quốc tế, hỗ trợ toàn bộ quy trình qua LadyLogin.',
+    logo: 'https://img.adspower.net/top-browser/75/3b6d605057ad4ae7d85815b87a1c76.png'
+  },
+  {
+    id: 26, name: 'Hiu Agency', category: 'account',
+    desc: 'Hiu Agency — đối tác uy tín chuyên cung cấp giải pháp cho thuê tài khoản Facebook Ads chất lượng cao, phối hợp hoàn hảo với LadyLogin.',
+    logo: 'https://img.adspower.net/top-browser/db/a9c69ac060d1313f0e541cb53fa6f8.jpg'
+  },
+  {
+    id: 27, name: 'Premium Agency', category: 'account',
+    desc: 'The Biggest Team cung cấp tài khoản Facebook Ads tại Việt Nam — đối tác tài khoản quảng cáo tin cậy của cộng đồng người dùng LadyLogin.',
+    logo: 'https://img.adspower.net/top-browser/70/9b2fe123fd39b195387dbf5e557db3.png'
+  },
+  // MARKETING
+  {
+    id: 28, name: 'WGLOBAL Agency', category: 'marketing',
+    desc: 'WGLOBAL Agency chuyên tối ưu hóa giải pháp quảng cáo, đồng hành cùng LadyLogin trong việc phát triển chiến lược marketing hiệu quả.',
+    logo: 'https://img.adspower.net/top-browser/ee/3c074c21711ed8e971109bc1de368f.png'
+  },
+  {
+    id: 29, name: 'Databay', category: 'marketing',
+    desc: 'Databay cung cấp mạng lưới 7 triệu proxy thiết bị thực toàn cầu, hỗ trợ thu thập dữ liệu và automation marketing cho người dùng LadyLogin.',
+    logo: 'https://img.adspower.net/top-browser/a5/676c09f93284b6dbf7287da94028f7.png'
+  },
+  // AFFILIATE
+  {
+    id: 30, name: 'Leadbit', category: 'affiliate',
+    desc: 'Leadbit là agency tiếp thị liên kết với các ưu đãi độc quyền trong các vertical hàng đầu. Đối tác affiliate chính thức của LadyLogin.',
+    logo: 'https://img.adspower.net/top-browser/12/028782db2edd08c59f3e21ffc0a471.png'
+  },
+  {
+    id: 31, name: 'TerraLeads', category: 'affiliate',
+    desc: 'TerraLeads — affiliate network đáng tin cậy, đối tác tiếp thị liên kết được chứng nhận bởi cộng đồng người dùng LadyLogin.',
+    logo: 'https://img.adspower.net/top-browser/18/efde6141a1e70932aa531afaf6682f.png'
+  },
+  {
+    id: 32, name: 'AdvertCN', category: 'affiliate',
+    desc: 'AdvertCN là diễn đàn tiếp thị liên kết chuyên nghiệp nhất Trung Quốc, phục vụ cộng đồng Chinese global — đối tác của LadyLogin.',
+    logo: 'https://img.adspower.net/top-browser/3c/d50986a41c7d8bd5fbac988c8d53ef.png'
+  },
+  {
+    id: 33, name: 'FBDIGG', category: 'affiliate',
+    desc: 'FBDIGG là một trong những shop lâu đời và nổi tiếng nhất trong thị trường affiliate toàn cầu — đối tác chiến lược của LadyLogin.',
+    logo: 'https://img.adspower.net/top-browser/dd/d6af7a433b588aadda0b826c75568e.png'
+  },
+];
+
+let activeTag = 'all';
+
+const revealIO = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); revealIO.unobserve(e.target); } });
+}, { threshold: 0.08 });
+
+function renderTags() {
+  const wrap = document.getElementById('tagFilter');
+  wrap.innerHTML = TAGS.map(t => `
+    <button class="tag-btn ${t.key === activeTag ? 'active' : ''}" data-key="${t.key}">
+      ${t.label}
+    </button>
+  `).join('');
+  wrap.querySelectorAll('.tag-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      activeTag = btn.dataset.key;
+      renderTags();
+      renderGrid();
+    });
+  });
+}
+
+function renderGrid() {
+  const grid = document.getElementById('partnerGrid');
+  const list = activeTag === 'all' ? PARTNERS : PARTNERS.filter(p => p.category === activeTag);
+  if (list.length === 0) {
+    grid.innerHTML = '<div class="no-results">Không có đối tác nào trong danh mục này.</div>';
+    return;
+  }
+  grid.innerHTML = list.map(p => `
+    <div class="partner-card">
+      <div class="card-name">${p.name}</div>
+      <div class="card-body">
+        <p class="card-desc">${p.desc}</p>
+        <div class="card-logo">
+          ${p.logo
+            ? `<img src="${p.logo}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="mix-blend-mode:multiply"><span class="logo-placeholder" style="display:none">${p.name.substring(0,8)}</span>`
+            : `<div class="logo-placeholder">${p.name.substring(0,8)}</div>`
+          }
+        </div>
+      </div>
+    </div>
+  `).join('');
+  grid.querySelectorAll('.partner-card').forEach((el, i) => {
+    el.style.transitionDelay = (i % 3 * 0.08).toFixed(2) + 's';
+    revealIO.observe(el);
+  });
+}
+
+renderTags();
+renderGrid();
+document.querySelectorAll('.partner-hero .container, .cta-banner').forEach(el => revealIO.observe(el));
+
+const progressBar = document.createElement('div');
+progressBar.className = 'scroll-progress';
+document.body.prepend(progressBar);
+window.addEventListener('scroll', () => {
+  const total = document.documentElement.scrollHeight - window.innerHeight;
+  progressBar.style.setProperty('--pct', (window.scrollY / total * 100).toFixed(2) + '%');
+}, { passive: true });
+</script>
+
+</body>
+</html>

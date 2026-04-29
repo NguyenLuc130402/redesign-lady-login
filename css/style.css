@@ -211,10 +211,8 @@ svg {
 }
 
 .brand-mark {
-  width: 32px;
-  height: 32px;
-  border-radius: 9px;
-  background: linear-gradient(135deg, var(--brand), #3b82f6);
+  width: 36px;
+  height: 36px;
   display: grid;
   place-items: center;
   flex-shrink: 0;
@@ -3046,6 +3044,14 @@ details,
 
   .container {
     width: min(1160px, calc(100% - 32px));
+  }
+
+  #features {
+    padding-top: 40px;
+  }
+
+  #features .section-head {
+    margin-bottom: 72px;
   }
 
   .menu-btn {

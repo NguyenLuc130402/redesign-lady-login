@@ -181,6 +181,10 @@ let currentCat = 'all';
 let currentPage = 1;
 const PAGE_SIZE = 9;
 
+const revealIO = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); revealIO.unobserve(e.target); } });
+}, { threshold: 0.08 });
+
 function renderGrid() {
   const search = document.getElementById('searchInput').value.trim().toLowerCase();
   let filtered = ARTICLES.filter(a => {
@@ -207,6 +211,10 @@ function renderGrid() {
       <span class="ac-tag">${a.tag}</span>
     </article>
   `).join('');
+  grid.querySelectorAll('.article-card').forEach((el, i) => {
+    el.style.transitionDelay = (i % 3 * 0.08).toFixed(2) + 's';
+    revealIO.observe(el);
+  });
 }
 
 function setCategory(btn, cat) {
@@ -234,6 +242,7 @@ function setPage(n) {
 
 // Init
 renderGrid();
+document.querySelectorAll('.blog-eyebrow, .blog-hero h1, .blog-hero .subtitle, .blog-hero .hero-search, .section-title, .featured-post, .blog-cta h2, .blog-cta p, .blog-cta .cta-btns').forEach(el => revealIO.observe(el));
 
 // Scroll progress bar
 const progressBar = document.createElement('div');
